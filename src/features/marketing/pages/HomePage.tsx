@@ -1,4 +1,4 @@
-import HeroSection from '../components/HeroSection';
+import { Hero } from "../components/hero";
 import CourseSection from '../components/CourseSection';
 import WhyChooseSection from '../components/WhyChooseSection';
 import TestimonialSection from '../components/TestimonialSection';
@@ -8,7 +8,7 @@ import FAQSection from '../components/FAQSection';
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <Hero />
       <CourseSection />
       <WhyChooseSection />
       <FAQSection/>
