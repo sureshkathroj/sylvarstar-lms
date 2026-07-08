@@ -1,3 +1,9 @@
 export default function HomePage() {
-  return <>Home</>;
+  return (
+    <div className="p-10">
+      <h1 className="text-4xl font-bold">
+        Welcome to SylvarStar
+      </h1>
+    </div>
+  );
 }
