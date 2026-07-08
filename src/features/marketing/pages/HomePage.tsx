@@ -1,9 +1,19 @@
+import HeroSection from '../components/HeroSection';
+import CourseSection from '../components/CourseSection';
+import WhyChooseSection from '../components/WhyChooseSection';
+import TestimonialSection from '../components/TestimonialSection';
+import CTASection from '../components/CTASection';
+import FAQSection from '../components/FAQSection';
+
 export default function HomePage() {
   return (
-    <div className="p-10">
-      <h1 className="text-4xl font-bold">
-        Welcome to SylvarStar
-      </h1>
-    </div>
+    <>
+      <HeroSection />
+      <CourseSection />
+      <WhyChooseSection />
+      <FAQSection/>
+      <TestimonialSection />
+      <CTASection />
+    </>
   );
 }

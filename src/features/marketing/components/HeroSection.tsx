@@ -1,15 +1,15 @@
-<section>
+import Container from '@/components/shared/Container';
 
-Container
-
-Badge
-
-Heading
-
-Subtitle
-
-Buttons
-
-Statistics
-
-</section>
+export default function HeroSection() {
+  return (
+    <section className="bg-white py-24">
+      <Container>
+        <div className="rounded-3xl border border-dashed border-slate-300 p-20 text-center">
+          <h2 className="text-5xl font-bold">
+            Hero Section
+          </h2>
+        </div>
+      </Container>
+    </section>
+  );
+}
