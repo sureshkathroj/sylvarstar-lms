@@ -1,4 +1,4 @@
-export const features = [
+export const featureItems = [
   {
     id: 1,
     title: "AI Powered Learning",

@@ -1,18 +1,14 @@
 import { CourseCard } from "./CourseCard";
 import { courses } from "./courses-data";
+import { Section, SectionHeader } from "@/components/shared";
 
 export function Courses() {
   return (
-    <section className="container mx-auto px-6 py-24">
-      <div className="mb-12 text-center">
-        <h2 className="text-4xl font-bold">
-          Popular Courses
-        </h2>
-
-        <p className="mt-4 text-muted-foreground">
-          Explore our most popular courses and start learning today.
-        </p>
-      </div>
+    <Section className="container mx-auto px-6 py-24">
+      <SectionHeader
+        title="Popular Courses"
+        subtitle="Explore our most popular courses and start learning today."
+      />
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {courses.map((course) => (
@@ -26,6 +22,6 @@ export function Courses() {
           />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

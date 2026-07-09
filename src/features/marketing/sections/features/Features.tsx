@@ -1,17 +1,23 @@
-
+import { Section, SectionHeader } from "@/components/shared";
+import { FeatureCard } from "./FeatureCard";
+import { featureItems } from "./features-data";
 
 export function Features() {
   return (
-    <section className="container mx-auto px-6 py-24">
-      <div className="mb-12 text-center">
-        <h2 className="text-4xl font-bold">
-          This is Features section sample
-        </h2>
+    <Section>
+      <SectionHeader
+        title="Everything You Need to Learn Better"
+        subtitle="Powerful features designed to help students, instructors, and organizations succeed."
+      />
 
-        
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {featureItems.map((feature) => (
+          <FeatureCard
+            key={feature.id}
+            {...feature}
+          />
+        ))}
       </div>
-
-     
-    </section>
+    </Section>
   );
 }
