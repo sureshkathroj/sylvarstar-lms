@@ -5,17 +5,20 @@ import TestimonialSection from '../components/TestimonialSection';
 import CTASection from '../components/CTASection';
 import FAQSection from '../components/FAQSection';
 import { Trusted } from "../sections/trusted";
+import { Courses } from "../sections/courses";
+import { Features} from "../sections/features";
+import { WhyChoose } from "../sections/why-choose";
+import { Testimonials } from "../sections/testimonials";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <Trusted/>
-      <CourseSection />
-      <WhyChooseSection />
-      <FAQSection/>
-      <TestimonialSection />
-      <CTASection />
+      <Features />
+      <Courses/>
+      <WhyChoose/>
+      <Testimonials/>
     </>
   );
 }
