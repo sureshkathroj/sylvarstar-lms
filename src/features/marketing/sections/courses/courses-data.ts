@@ -1,0 +1,32 @@
+export const courses = [
+  {
+    id: 1,
+    title: "React Masterclass",
+    category: "Frontend",
+    image: "/courses/react.jpg",
+    rating: "4.9",
+    students: "1,240",
+    duration: "12 Hours",
+    level: "Intermediate",
+  },
+  {
+    id: 2,
+    title: "TypeScript Essentials",
+    category: "Programming",
+    image: "/courses/typescript.jpg",
+    rating: "4.8",
+    students: "980",
+    duration: "8 Hours",
+    level: "Beginner",
+  },
+  {
+    id: 3,
+    title: "AI Fundamentals",
+    category: "Artificial Intelligence",
+    image: "/courses/ai.jpg",
+    rating: "4.9",
+    students: "860",
+    duration: "15 Hours",
+    level: "Advanced",
+  },
+];
