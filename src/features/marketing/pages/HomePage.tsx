@@ -1,4 +1,4 @@
-import { Hero } from "../components/hero";
+import { Hero } from "../sections/hero/Hero";
 import CourseSection from '../components/CourseSection';
 import WhyChooseSection from '../components/WhyChooseSection';
 import TestimonialSection from '../components/TestimonialSection';

@@ -1,3 +1,4 @@
+import { HeroBadge } from "./HeroBadge";
 import { HeroButtons } from "./HeroButtons";
 import { HeroStats } from "./HeroStats";
 
@@ -5,7 +6,7 @@ export function HeroContent() {
   return (
     <div className="space-y-8">
       <span className="rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-        AI Powered Learning Platform
+        <HeroBadge text="AI Powered Learning Platform" />
       </span>
 
       <h1 className="text-5xl font-bold leading-tight lg:text-6xl">
