@@ -1,11 +1,7 @@
-interface HeroBadgeProps {
-  text: string;
-}
-
-export function HeroBadge({ text }: HeroBadgeProps) {
+export function HeroBadge() {
   return (
-    <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-      {text}
-    </span>
+    <div className="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-700">
+      ✨ AI Powered Learning Platform
+    </div>
   );
 }

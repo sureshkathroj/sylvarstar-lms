@@ -6,9 +6,9 @@ export function Courses() {
   return (
     <Section className="container mx-auto px-6 py-24">
       <SectionHeader
-        title="Popular Courses"
-        subtitle="Explore our most popular courses and start learning today."
-      />
+  title="Featured Courses"
+  subtitle="Discover expertly crafted courses designed to help you master today's most in-demand skills."
+/>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {courses.map((course) => (

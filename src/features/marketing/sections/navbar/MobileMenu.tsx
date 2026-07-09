@@ -1,12 +1,12 @@
 import { Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function MobileMenu() {
   return (
-    <div className="lg:hidden">
-      <Button variant="ghost" size="icon">
-        <Menu className="h-5 w-5" />
-      </Button>
-    </div>
+    <button
+      className="rounded-xl border p-2 lg:hidden"
+      aria-label="Open Menu"
+    >
+      <Menu className="h-5 w-5" />
+    </button>
   );
 }

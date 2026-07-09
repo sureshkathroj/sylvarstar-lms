@@ -1,26 +1,37 @@
+import {
+  Brain,
+  GraduationCap,
+  BadgeCheck,
+  Globe,
+} from "lucide-react";
+
 export const whyChooseItems = [
   {
     id: 1,
-    title: "Expert Instructors",
+    icon: Brain,
+    title: "AI Assisted Learning",
     description:
-      "Learn from experienced industry professionals with real-world expertise.",
+      "Personalized learning paths that adapt to every learner.",
   },
   {
     id: 2,
-    title: "AI Personalized Learning",
+    icon: GraduationCap,
+    title: "Expert Mentors",
     description:
-      "Adaptive learning paths tailored to your progress and learning style.",
+      "Learn directly from experienced professionals and educators.",
   },
   {
     id: 3,
-    title: "Certificates",
+    icon: BadgeCheck,
+    title: "Recognized Certificates",
     description:
-      "Earn shareable certificates after successfully completing your courses.",
+      "Earn certificates to showcase your new skills and achievements.",
   },
   {
     id: 4,
-    title: "Lifetime Access",
+    icon: Globe,
+    title: "Learn Anywhere",
     description:
-      "Access your purchased courses anytime, anywhere, on any device.",
+      "Access courses on desktop, tablet and mobile whenever you want.",
   },
 ];

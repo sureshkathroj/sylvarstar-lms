@@ -1,23 +1,27 @@
-type WhyChooseCardProps = {
+import type { LucideIcon } from "lucide-react";
+
+type Props = {
+  icon: LucideIcon;
   title: string;
   description: string;
 };
 
 export function WhyChooseCard({
+  icon: Icon,
   title,
   description,
-}: WhyChooseCardProps) {
+}: Props) {
   return (
-    <div className="rounded-xl border bg-white p-6 shadow-sm transition hover:shadow-lg">
-      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-xl">
-        ⭐
+    <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100">
+        <Icon className="h-7 w-7 text-indigo-600" />
       </div>
 
-      <h3 className="mb-3 text-xl font-semibold">
+      <h3 className="mb-3 text-xl font-bold text-slate-900">
         {title}
       </h3>
 
-      <p className="text-muted-foreground">
+      <p className="leading-7 text-slate-600">
         {description}
       </p>
     </div>

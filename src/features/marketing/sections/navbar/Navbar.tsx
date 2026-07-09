@@ -5,8 +5,9 @@ import { MobileMenu } from "./MobileMenu";
 
 export function Navbar() {
   return (
-    <header className="border-b bg-background">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-lg">
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
+
         <Logo />
 
         <NavLinks />
@@ -14,6 +15,7 @@ export function Navbar() {
         <NavActions />
 
         <MobileMenu />
+
       </div>
     </header>
   );
