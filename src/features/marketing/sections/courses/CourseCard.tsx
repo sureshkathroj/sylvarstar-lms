@@ -3,8 +3,6 @@ import { Star, Clock, Users, BookOpen } from "lucide-react";
 type Props = {
   title: string;
   category: string;
-  image: string;
-  rating: string;
   students: string;
   duration: string;
   level: string;
@@ -13,8 +11,6 @@ type Props = {
 export function CourseCard({
   title,
   category,
-  image,
-  rating,
   students,
   duration,
   level,
@@ -40,7 +36,7 @@ export function CourseCard({
 
         <div className="mt-4 flex items-center gap-2 text-sm text-slate-600">
           <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-          {rating}
+          Project Based Learning
         </div>
 
         <div className="mt-4 flex items-center gap-6 text-sm text-slate-500">
