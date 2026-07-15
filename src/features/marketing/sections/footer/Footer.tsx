@@ -69,7 +69,7 @@ export function Footer() {
         <div>
 
           <h4 className="font-semibold text-slate-900">
-            Programs
+            Training Programs
           </h4>
 
           <ul className="mt-6 space-y-3 text-slate-600">
