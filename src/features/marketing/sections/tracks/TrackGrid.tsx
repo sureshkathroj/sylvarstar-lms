@@ -6,7 +6,7 @@ export function TrackGrid() {
     <section className="container mx-auto px-6 pb-24">
       <div className="grid gap-8 md:grid-cols-2">
         {tracks.map((track) => (
-          <TrackCard key={track.id} {...track} />
+          <TrackCard programs={0} key={track.id} {...track} />
         ))}
       </div>
     </section>

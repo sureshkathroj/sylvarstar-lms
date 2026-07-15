@@ -5,6 +5,7 @@ export interface TechnologyTrack {
   slug: string;
   title: string;
   description: string;
+  cta: string;
   icon: LucideIcon;
   featured?: boolean;
   comingSoon?: boolean;
