@@ -7,9 +7,9 @@ export const navigation = [
   },
 
   {
-    label: "Programs",
-    href: "/programs",
-  },
+  label: "Technology Tracks",
+  href: "/technology-tracks",
+},
 
   {
     label: "Corporate",

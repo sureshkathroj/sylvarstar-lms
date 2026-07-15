@@ -1,51 +1,47 @@
 import {
   Database,
   Code2,
-  Sparkles,
+ Sparkles,
   Building2,
 } from "lucide-react";
 
-export const tracks = [
+import type { TechnologyTrack } from "../types/track";
+
+export const tracks: TechnologyTrack[] = [
   {
     id: 1,
+    slug: "oracle-technologies",
     title: "Oracle Technologies",
     description:
-      "Master Oracle Fusion Applications and Enterprise ERP solutions.",
+      "Master Oracle Fusion Applications, HCM, SCM, Financials and Enterprise ERP solutions.",
     icon: Database,
-    programs: 7,
-    color: "indigo",
+    featured: false,
   },
-
   {
     id: 2,
+    slug: "software-development",
     title: "Software Development",
     description:
-      "Become a modern software engineer using today's most in-demand technologies.",
+      "Build modern web applications with Full Stack Development, React, Angular, Java and Python.",
     icon: Code2,
-    programs: 1,
-    color: "blue",
     featured: true,
   },
-
   {
     id: 3,
+    slug: "ai-future-skills",
     title: "AI & Future Skills",
     description:
-      "Learn AI-assisted development, automation and modern engineering practices.",
+      "Learn AI-assisted development, developer productivity and emerging technologies.",
     icon: Sparkles,
-    programs: 0,
-    color: "violet",
     comingSoon: true,
   },
-
   {
     id: 4,
+    slug: "enterprise-platforms",
     title: "Enterprise Platforms",
     description:
-      "ServiceNow, Salesforce, SAP and Workday programs coming soon.",
+      "ServiceNow, Salesforce, SAP and other enterprise platforms.",
     icon: Building2,
-    programs: 0,
-    color: "emerald",
     comingSoon: true,
   },
 ];

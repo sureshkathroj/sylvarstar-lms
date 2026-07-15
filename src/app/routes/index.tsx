@@ -19,9 +19,9 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/programs",
+        path: "/technology-tracks",
         element: <ProgramsPage />,
-      },
+    },
 
       {
         path: "/corporate-training",
