@@ -1,26 +1,34 @@
+
+
 export const navigation = [
   {
     label: "Home",
-    href: "#",
+    href: "/",
   },
+
   {
     label: "Programs",
-    href: "ProgramsPage",
+    href: "/programs",
   },
+
   {
     label: "Corporate",
-    href: "#",
+    href: "/corporate-training",
   },
+
   {
     label: "Blog",
-    href: "#",
+    href: "/blog",
   },
+
   {
     label: "About",
-    href: "#about",
+    href: "/about",
   },
+
   {
     label: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
+

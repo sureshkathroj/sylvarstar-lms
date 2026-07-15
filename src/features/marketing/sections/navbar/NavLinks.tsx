@@ -1,16 +1,21 @@
-import { navigation } from "./navigation";
+import { navigation } from "../../config/navigation";
+import { NavLink } from "react-router-dom";
 
 export function NavLinks() {
   return (
-    <nav className="hidden items-center gap-10 lg:flex">
+    <nav className="hidden lg:flex gap-8">
       {navigation.map((item) => (
-        <a
+        <NavLink
           key={item.label}
-          href={item.href}
-          className="text-sm font-medium text-slate-600 transition hover:text-indigo-600"
+          to={item.href}
+          className={({ isActive }) =>
+            isActive
+              ? "font-semibold text-indigo-600"
+              : "text-slate-600 hover:text-indigo-600"
+          }
         >
           {item.label}
-        </a>
+        </NavLink>
       ))}
     </nav>
   );
