@@ -1,12 +1,12 @@
 import { CheckCircle2 } from "lucide-react";
 import { benefits, contactInfo } from "@/features/marketing/data/contact";
-import { ContactInfoCard } from "./ContactInfoCard";
+import { ContactInfoCard } from "./ContactInfo";
 
 export function ContactContent() {
   return (
     <div>
 
-      <span className="rounded-full bg-[#2F5BFF]/10 px-4 py-2 text-sm font-semibold text-[#2F5BFF]">
+      <span className="rounded-full bg-[#2F5BFF]/10 px-3 py-1.5 text-sm font-semibold text-[#2F5BFF]">
         ADMISSIONS OPEN
       </span>
 

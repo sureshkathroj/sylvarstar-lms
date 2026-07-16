@@ -25,14 +25,14 @@ export const contactInfo = [
       "info@sylvarstar.com",
     ],
   },
-  {
-    icon: Clock,
-    title: "Office Hours",
-    lines: [
-      "Monday - Saturday",
-      "9:00 AM - 8:00 PM",
-    ],
-  },
+  // {
+  //   icon: Clock,
+  //   title: "Office Hours",
+  //   lines: [
+  //     "Monday - Saturday",
+  //     "9:00 AM - 8:00 PM",
+  //   ],
+  // },
 ];
 
 export const benefits = [

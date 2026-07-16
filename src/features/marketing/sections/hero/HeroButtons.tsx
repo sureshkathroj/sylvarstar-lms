@@ -7,7 +7,7 @@ export function HeroButtons() {
         size="lg"
         className="rounded-xl bg-indigo-600 px-8 hover:bg-indigo-700"
       >
-        Book Free Demo Class
+        Book My Free Demo
       </Button>
 
       <Button

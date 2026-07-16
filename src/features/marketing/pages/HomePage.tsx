@@ -1,8 +1,9 @@
 import { Hero } from "../sections/hero/Hero";
 import { WhyChooseSection } from "../sections/why-choose";
 // import { Testimonials } from "../sections/testimonials";
-import { CTA } from "../sections/cta/CTA";
+// import { CTA } from "../sections/cta/CTA";
 import { ProgramsSection } from "../sections/programs/ProgramsSection";
+import { ContactSection } from "../sections/contact";
 
 export default function HomePage() {
   return (
@@ -11,7 +12,9 @@ export default function HomePage() {
       <ProgramsSection />
       <WhyChooseSection />
       {/* <Testimonials/> */}
-      <CTA/>
+      {/* <CTA/> */}
+      <ContactSection />
+
       
     </>
   );
