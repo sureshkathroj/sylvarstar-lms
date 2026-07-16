@@ -7,6 +7,7 @@ import {
   Eye,
   CheckCircle2,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import {
   Badge,
   PrimaryButton,
@@ -48,11 +49,18 @@ export function AboutPage() {
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <PrimaryButton>
-              Book Free Demo
+              <a
+                href="#contact"
+                className="..."
+              >Book My Free Demo</a>
             </PrimaryButton>
 
             <SecondaryButton>
-              Explore Programs
+              <Link
+    to="/technology-tracks"
+>
+    Explore Programs
+</Link>
             </SecondaryButton>
           </div>
 
@@ -263,7 +271,10 @@ export function AboutPage() {
 
             <button className="flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-[#2F5BFF] transition hover:scale-105">
 
-              Book Free Demo
+              <a
+                href="#contact"
+                className="..."
+              >Book My Free Demo</a>
 
               <ArrowRight className="h-5 w-5" />
 

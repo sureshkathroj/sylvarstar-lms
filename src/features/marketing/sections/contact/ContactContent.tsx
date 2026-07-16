@@ -4,6 +4,7 @@ import { ContactInfoCard } from "./ContactInfo";
 
 export function ContactContent() {
   return (
+    <section id="contact" className="py-24">
     <div>
 
       <span className="rounded-full bg-[#2F5BFF]/10 px-3 py-1.5 text-sm font-semibold text-[#2F5BFF]">
@@ -50,5 +51,6 @@ export function ContactContent() {
       </div>
 
     </div>
+    </section>
   );
 }

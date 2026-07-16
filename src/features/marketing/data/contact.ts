@@ -15,7 +15,7 @@ export const contactInfo = [
     icon: Phone,
     title: "Call Us",
     lines: [
-      "+91 XXXXXXXXXX",
+      "+91 7093013375",
     ],
   },
   {

@@ -22,9 +22,9 @@ export const navigation = [
 
   
 
-  {
-    label: "Contact",
-    href: "/contact",
-  },
+  // {
+  //   label: "Contact",
+  //   href: "/contact",
+  // },
 ];
 

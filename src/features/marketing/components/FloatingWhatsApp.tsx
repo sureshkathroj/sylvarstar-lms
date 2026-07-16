@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-const phoneNumber = "919640147969"; // Replace with your WhatsApp number
+const phoneNumber = "917093013375"; // Replace with your WhatsApp number
 
 const message =
   "Hi! I'm interested in joining SylvarStar. Please share the course details.";

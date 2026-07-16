@@ -4,7 +4,7 @@ import { SectionHeader } from "@/features/marketing/shared";
 
 export function ProgramsSection() {
   return (
-    <section className="py-20">
+    <section id="programs" className="py-20">
 
       <div className="container mx-auto px-6">
 

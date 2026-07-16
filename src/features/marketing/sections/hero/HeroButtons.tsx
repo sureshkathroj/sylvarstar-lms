@@ -7,7 +7,10 @@ export function HeroButtons() {
         size="lg"
         className="rounded-xl bg-indigo-600 px-8 hover:bg-indigo-700"
       >
-        Book My Free Demo
+        <a
+          href="#contact"
+          className="..."
+        >Book My Free Demo</a>
       </Button>
 
       <Button
@@ -15,7 +18,10 @@ export function HeroButtons() {
         size="lg"
         className="rounded-xl px-8"
       >
-        Explore Programs
+        <a
+          href="#programs"
+          className="..."
+        >Explore Programs</a>
       </Button>
     </div>
   );

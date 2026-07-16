@@ -6,7 +6,7 @@ import {
 
 export function ProgramsHero() {
   return (
-    <section className="bg-[#F7F9FC] py-20">
+    <section className="bg-[#F7F9FC] py-24">
 
       <div className="container mx-auto px-6">
 
@@ -19,11 +19,22 @@ export function ProgramsHero() {
         <div className="mt-10 flex justify-center gap-4">
 
           <PrimaryButton>
-            Explore Academies
+            <a
+  href="#academies"
+  className="..."
+>
+  Explore Academies
+</a>
           </PrimaryButton>
+          
 
           <SecondaryButton>
-            Talk to a Mentor
+            <a
+    href="#contact"
+    className="..."
+>
+    Talk to a Mentor
+</a>
           </SecondaryButton>
 
         </div>

@@ -33,9 +33,9 @@ export function Footer() {
               <p className="text-sm text-slate-600">
                 SylvarStar Learning Center
                 <br />
-                Madhapur,
-                Hyderabad,
-                Telangana – 500081
+                1st Floor, H.NO:1-5/1, beside water tank
+                Nizampet, Hyderabad -500090
+                
               </p>
 
             </div>
@@ -45,7 +45,7 @@ export function Footer() {
               <Phone className="h-5 w-5 text-indigo-600" />
 
               <span className="text-sm text-slate-600">
-                +91 98765 43210
+                +91 70930 13375
               </span>
 
             </div>
