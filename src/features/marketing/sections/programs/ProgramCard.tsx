@@ -1,4 +1,5 @@
 import { ArrowRight, LucideIcon } from "lucide-react";
+import { Card } from "@/features/marketing/shared";
 
 type Props = {
   icon: LucideIcon;
@@ -16,7 +17,7 @@ export function ProgramCard({
   highlights,
 }: Props) {
   return (
-    <div className="rounded-3xl border border-[#E4EAF5] bg-[#F7F9FC] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <Card className="p-8 hover:-translate-y-2">
 
       <div className="flex items-center gap-4">
 
@@ -72,6 +73,6 @@ export function ProgramCard({
 
       </button>
 
-    </div>
+    </Card>
   );
 }
