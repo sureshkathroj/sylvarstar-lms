@@ -6,7 +6,9 @@ import { ProgramsPage } from "@/features/marketing/pages/ProgramsPage";
 import { BlogPage } from "@/features/marketing/pages/BlogPage";
 import { AboutPage } from "@/features/marketing/pages/AboutPage";
 import { ContactPage } from "@/features/marketing/pages/ContactPage";
-import { CorporateTrainingPage } from "@/features/marketing/pages/CorporateTrainingPage";
+import OracleFusionPage from "@/features/marketing/pages/OracleTechnologiesPage";
+import SoftwareDevelopmentPage from "@/features/marketing/pages/SoftwareDevelopmentPage";
+
 
 export const router = createBrowserRouter([
   {
@@ -23,10 +25,7 @@ export const router = createBrowserRouter([
         element: <ProgramsPage />,
     },
 
-      {
-        path: "/corporate-training",
-        element: <CorporateTrainingPage />,
-      },
+      
 
       {
         path: "/blog",
@@ -42,6 +41,14 @@ export const router = createBrowserRouter([
         path: "/contact",
         element: <ContactPage />,
       },
+      {
+  path: "/programs/oracle-fusion",
+  element: <OracleFusionPage />,
+},
+{
+  path: "/programs/software-development",
+  element: <SoftwareDevelopmentPage/>
+}
     ],
   },
 ]);

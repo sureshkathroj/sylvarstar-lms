@@ -1,5 +1,6 @@
 import { ArrowRight, LucideIcon } from "lucide-react";
 import { Card } from "@/features/marketing/shared";
+import { Link } from "react-router-dom";
 
 type Props = {
   icon: LucideIcon;
@@ -7,6 +8,9 @@ type Props = {
   description: string;
   technologies: string[];
   highlights: string[];
+  duration: string;
+  mode: string;
+  route: string;
 };
 
 export function ProgramCard({
@@ -15,6 +19,9 @@ export function ProgramCard({
   description,
   technologies,
   highlights,
+  duration,
+  mode,
+  route,
 }: Props) {
   return (
     <Card className="p-8 hover:-translate-y-2">
@@ -67,9 +74,13 @@ export function ProgramCard({
 
       <button className="mt-10 flex items-center gap-2 font-semibold text-[#2F5BFF]">
 
-        Explore Program
+        <Link
+  to={route}
+  className="mt-10 inline-flex items-center font-semibold text-[#2F5BFF]">
+  View Academy <ArrowRight className="h-4 w-4" />
+</Link>
 
-        <ArrowRight className="h-4 w-4" />
+        
 
       </button>
 

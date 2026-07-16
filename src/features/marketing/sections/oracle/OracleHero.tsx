@@ -4,26 +4,26 @@ import {
   SectionHeader,
 } from "@/features/marketing/shared";
 
-export function ProgramsHero() {
+export function OracleHero() {
   return (
-    <section className="bg-[#F7F9FC] py-20">
+    <section className="bg-[#F7F9FC] py-24">
 
       <div className="container mx-auto px-6">
 
         <SectionHeader
-          badge="OUR ACADEMIES"
-          title="Choose the Right Learning Path"
-          description="Whether your goal is becoming an Oracle Fusion Consultant or a Modern Full Stack Developer, SylvarStar provides industry-oriented programs designed to help you succeed."
+          badge="ORACLE FUSION ACADEMY"
+          title="Build Your Career in Oracle Fusion"
+          description="Master Oracle Fusion HCM, Financials, SCM and SQL with hands-on training, live projects and expert mentorship."
         />
 
         <div className="mt-10 flex justify-center gap-4">
 
           <PrimaryButton>
-            Explore Academies
+            Book Free Demo
           </PrimaryButton>
 
           <SecondaryButton>
-            Talk to a Mentor
+            Download Curriculum
           </SecondaryButton>
 
         </div>
