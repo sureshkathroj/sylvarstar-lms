@@ -1,1 +1,1 @@
-export * from "./WhyChoose";
+export { WhyChooseSection } from "./WhyChooseSection";

@@ -47,6 +47,25 @@
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
 }
+:root {
+  /* Brand */
+  --primary: #2F5BFF;
+  --primary-hover: #2447D9;
+
+  /* Light Theme */
+  --background: #FFFFFF;
+  --card: #F7F9FC;
+  --border: #E4EAF5;
+
+  --text-primary: #111827;
+  --text-secondary: #64748B;
+
+  /* Status */
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --info: #0EA5E9;
+}
 
 :root {
     --background: oklch(1 0 0);

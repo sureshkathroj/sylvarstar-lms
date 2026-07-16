@@ -8,16 +8,16 @@ export function HeroContent() {
 
       <HeroBadge />
 
-      <h1 className="mt-6 text-5xl font-black leading-tight tracking-tight text-slate-900 lg:text-7xl">
-        Learn Smarter.
+      <h1 className="mt-6 text-5xl font-black leading-tight tracking-tight text-slate-900 lg:text-6xl">
+        Build Your Career in
         <br />
-        Grow Faster.
+        Oracle Fusion {" "} &
+        <br/>
+        Modern Software Development
       </h1>
 
       <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-  Master modern technologies with AI-assisted learning,
-  hands-on projects, live online classes, and expert mentors—
-  all in one beautiful platform.
+  Learn Oracle Fusion and modern software development from experienced industry professionals through classroom training, online sessions, live projects, AI-assisted development, and career mentoring.
 </p>
 
       <HeroButtons />
