@@ -60,7 +60,7 @@ export function CourseCard({
           </span>
 
           <button className="rounded-xl bg-indigo-600 px-5 py-2 text-white hover:bg-indigo-700">
-            Enroll
+            Learn More
           </button>
 
         </div>

@@ -4,6 +4,7 @@ import {
   Mail,
   Clock
 } from "lucide-react";
+import { Logo } from "../navbar/Logo";
 
 export function Footer() {
   return (
@@ -14,9 +15,7 @@ export function Footer() {
 
         <div>
 
-          <h3 className="text-2xl font-black text-slate-900">
-            SylvarStar
-          </h3>
+          <Logo></Logo>
 
           <p className="mt-4 leading-7 text-slate-600">
             AI-powered learning platform helping students
@@ -33,9 +32,9 @@ export function Footer() {
               <p className="text-sm text-slate-600">
                 SylvarStar Learning Center
                 <br />
-                Madhapur,
-                Hyderabad,
-                Telangana – 500081
+                1st Floor, H.NO:1-5/1, beside water tank
+                Nizampet, Hyderabad -500090
+                
               </p>
 
             </div>
@@ -45,7 +44,7 @@ export function Footer() {
               <Phone className="h-5 w-5 text-indigo-600" />
 
               <span className="text-sm text-slate-600">
-                +91 98765 43210
+                +91 70930 13375
               </span>
 
             </div>
@@ -69,7 +68,7 @@ export function Footer() {
         <div>
 
           <h4 className="font-semibold text-slate-900">
-            Programs
+            Training Programs
           </h4>
 
           <ul className="mt-6 space-y-3 text-slate-600">

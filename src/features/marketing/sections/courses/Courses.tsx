@@ -6,8 +6,8 @@ export function Courses() {
   return (
     <Section className="container mx-auto px-6 py-24">
       <SectionHeader
-  title="Featured Courses"
-  subtitle="Discover expertly crafted courses designed to help you master today's most in-demand skills."
+  title="Training Programs"
+  subtitle="Choose the right career path with industry-focused training designed by experienced professionals."
 />
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
