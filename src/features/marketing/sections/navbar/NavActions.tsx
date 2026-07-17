@@ -7,12 +7,10 @@ export function NavActions() {
         variant="ghost"
         className="font-medium"
       >
-        Log In
+        Student Login
       </Button>
 
-      <Button className="rounded-xl bg-indigo-600 px-6 hover:bg-indigo-700">
-        Sign Up
-      </Button>
+      
     </div>
   );
 }

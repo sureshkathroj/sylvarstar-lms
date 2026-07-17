@@ -1,19 +1,21 @@
 import { Hero } from "../sections/hero/Hero";
-import { Courses } from "../sections/courses";
-import { WhyChoose } from "../sections/why-choose";
-import { Testimonials } from "../sections/testimonials";
-import { CTA } from "../sections/cta/CTA";
-import { Footer } from "../sections/footer/Footer";
+import { WhyChooseSection } from "../sections/why-choose";
+// import { Testimonials } from "../sections/testimonials";
+// import { CTA } from "../sections/cta/CTA";
+import { ProgramsSection } from "../sections/programs/ProgramsSection";
+import { ContactSection } from "../sections/contact";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Courses/>
-      <WhyChoose/>
-      <Testimonials/>
-      <CTA/>
-      <Footer/>
+      <ProgramsSection />
+      <WhyChooseSection />
+      {/* <Testimonials/> */}
+      {/* <CTA/> */}
+      <ContactSection />
+
+      
     </>
   );
 }
