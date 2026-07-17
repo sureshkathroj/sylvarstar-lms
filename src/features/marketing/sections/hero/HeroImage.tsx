@@ -1,6 +1,3 @@
-import { CalendarDays, GraduationCap } from "lucide-react";
-
-import { FloatingInfoCard } from "./FloatingInfoCard";
 import { LearningJourneyCard } from "./LearningJourneyCard";
 
 export function HeroImage() {

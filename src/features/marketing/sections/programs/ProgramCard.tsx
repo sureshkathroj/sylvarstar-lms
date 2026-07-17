@@ -19,8 +19,6 @@ export function ProgramCard({
   description,
   technologies,
   highlights,
-  duration,
-  mode,
   route,
 }: Props) {
   return (

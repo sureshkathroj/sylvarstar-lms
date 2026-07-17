@@ -1,6 +1,5 @@
 import {
   CheckCircle2,
-  Briefcase,
   FolderGit2,
   GraduationCap,
 } from "lucide-react";

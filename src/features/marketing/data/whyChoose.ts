@@ -1,8 +1,5 @@
 import {
   Briefcase,
-  FolderGit2,
-  Bot,
-  GraduationCap,
   Award,
   type LucideIcon,
 } from "lucide-react";
