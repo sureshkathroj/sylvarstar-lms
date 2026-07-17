@@ -19,7 +19,7 @@ export function SoftwareHero() {
         <div className="mt-10 flex justify-center gap-4">
 
           <PrimaryButton>
-            Book Free Demo
+            <a href="#contact"> Book Free Demo </a>
           </PrimaryButton>
 
           <SecondaryButton>

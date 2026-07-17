@@ -4,6 +4,7 @@ import {
   Mail,
   Clock
 } from "lucide-react";
+import { Logo } from "../navbar/Logo";
 
 export function Footer() {
   return (
@@ -14,9 +15,7 @@ export function Footer() {
 
         <div>
 
-          <h3 className="text-2xl font-black text-slate-900">
-            SylvarStar
-          </h3>
+          <Logo></Logo>
 
           <p className="mt-4 leading-7 text-slate-600">
             AI-powered learning platform helping students

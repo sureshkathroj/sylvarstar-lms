@@ -19,7 +19,7 @@ export function OracleHero() {
         <div className="mt-10 flex justify-center gap-4">
 
           <PrimaryButton>
-            <a href="contactForm"> Book Free Demo </a>
+            <a href="#contact"> Book Free Demo </a>
           </PrimaryButton>
 
           <SecondaryButton>
