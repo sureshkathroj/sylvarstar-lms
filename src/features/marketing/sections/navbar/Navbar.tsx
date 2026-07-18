@@ -1,4 +1,4 @@
-import { Logo } from "./Logo";
+import { Logo } from "../../../../components/shared/Logo";
 import { NavLinks } from "./NavLinks";
 import { NavActions } from "./NavActions";
 import { MobileMenu } from "./MobileMenu";

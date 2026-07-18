@@ -1,18 +1,22 @@
 export const navigation = [
   {
-    title: "Courses",
-    href: "#courses",
+    title: "Home",
+    href: "/",
   },
   {
-    title: "Why Choose Us",
-    href: "#why-choose-us",
+    title: "Oracle Fusion",
+    href: "/oracle-fusion",
   },
   {
-    title: "Testimonials",
-    href: "#testimonials",
+    title: "Software Development",
+    href: "/software-development",
+  },
+  {
+    title: "About",
+    href: "/about",
   },
   {
     title: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
-] as const;
+];
