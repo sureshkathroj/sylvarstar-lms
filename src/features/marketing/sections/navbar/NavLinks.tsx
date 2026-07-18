@@ -12,7 +12,7 @@ export function NavLinks() {
           className={({ isActive }) =>
             `relative py-2 text-sm font-medium transition-all duration-300 ${
               isActive
-                ? "text-primary"
+                ? "text-cyan-400"
                 : "text-slate-600 hover:text-slate-900"
             }`
           }

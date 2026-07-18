@@ -1,7 +1,13 @@
+import { Sparkles } from "lucide-react";
+
 export function HeroBadge() {
   return (
-    <div className="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-700">
-      🚀 Admissions Open 2026
+    <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 backdrop-blur-md">
+      <Sparkles className="h-4 w-4 text-cyan-400" />
+
+      <span className="text-sm font-medium tracking-wide text-cyan-200">
+        Admissions Open • Online & Classroom Training
+      </span>
     </div>
   );
 }

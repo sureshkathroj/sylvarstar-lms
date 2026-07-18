@@ -12,15 +12,18 @@ export function NavActions() {
         size="lg"
         onClick={() => navigate("/student-login")}
         className="
-          rounded-full
-          px-6
-          font-semibold
-          shadow-sm
-          transition-all
-          duration-300
-          hover:-translate-y-0.5
-          hover:shadow-lg
-        "
+rounded-full
+bg-cyan-500
+px-6
+font-semibold
+text-white
+shadow-lg
+transition-all
+duration-300
+hover:-translate-y-0.5  
+hover:bg-cyan-400
+hover:shadow-cyan-500/30
+"
       >
         Student Login
         <ArrowRight className="ml-2 h-4 w-4" />

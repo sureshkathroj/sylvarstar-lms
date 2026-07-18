@@ -3,30 +3,52 @@ import { HeroImage } from "./HeroImage";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-indigo-50/40 to-white">
-
-      {/* Background Glow */}
+    <section className="relative overflow-hidden bg-[#07142B]">
+      {/* Background Glow - Top Right */}
       <div
         className="
           pointer-events-none
           absolute
-          right-[-120px]
-          top-20
+          right-[-180px]
+          top-[-120px]
           h-[520px]
           w-[520px]
           rounded-full
-          bg-indigo-200/30
-          blur-3xl
+          bg-cyan-500/20
+          blur-[120px]
         "
       />
 
-      <div className="container mx-auto grid min-h-[760px] items-center gap-16 px-6 py-20 lg:grid-cols-2">
+      {/* Background Glow - Bottom Left */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          bottom-[-220px]
+          left-[-160px]
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-indigo-600/20
+          blur-[120px]
+        "
+      />
 
-        <HeroContent />
+      <div className="mx-auto max-w-[1500px] px-8">
 
-        <HeroImage />
+    <div className="grid min-h-screen items-center gap-10 lg:grid-cols-12">
 
-      </div>
+        <div className="lg:col-span-5">
+            <HeroContent />
+        </div>
+
+        <div className="lg:col-span-7">
+            <HeroImage />
+        </div>
+
+    </div>
+
+</div>
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo/SylvarStar_logo_primary.png";
+import logo from "../../assets/logo/Sylvarstar_logo_primary.svg";
 
 export function Logo() {
   return (
