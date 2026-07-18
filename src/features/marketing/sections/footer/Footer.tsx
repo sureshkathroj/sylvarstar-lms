@@ -1,154 +1,67 @@
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock
-} from "lucide-react";
-import { Logo } from "../navbar/Logo";
+import { Logo } from "@/components/shared/Logo";
+import  Container  from "@/components/shared/Container";
+
+import { FooterColumn } from "./FooterColumn";
+
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "Oracle Fusion", href: "/oracle-fusion" },
+  { label: "Software Development", href: "/software-development" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
+const programs = [
+  { label: "Oracle Fusion HCM", href: "#" },
+  { label: "Oracle Financials", href: "#" },
+  { label: "Oracle SCM", href: "#" },
+  { label: "AI Full Stack", href: "#" },
+];
+
+const company = [
+  { label: "Hyderabad, India", href: "#" },
+  { label: "contact@sylvarstar.com", href: "#" },
+  { label: "+91 XXXXX XXXXX", href: "#" },
+];
 
 export function Footer() {
   return (
-    <footer className="border-t bg-slate-50">
-      <div className="container mx-auto grid gap-12 px-6 py-20 lg:grid-cols-4">
+    <footer className="border-t bg-white">
+      <Container className="py-20">
+        <div className="grid gap-14 lg:grid-cols-4">
+          <div className="max-w-sm">
+            <Logo />
 
-        {/* Brand */}
+            <p className="mt-6 text-sm leading-7 text-slate-600">
+              Building careers through industry-focused Oracle Fusion and
+              Software Development programs with hands-on learning and
+              real-world projects.
+            </p>
+          </div>
 
-        <div>
+          <FooterColumn title="Quick Links" links={quickLinks} />
 
-          <Logo></Logo>
+          <FooterColumn title="Programs" links={programs} />
 
-          <p className="mt-4 leading-7 text-slate-600">
-            AI-powered learning platform helping students
-            build future-ready skills through live classes,
-            real projects and expert mentorship.
+          <FooterColumn title="Contact" links={company} />
+        </div>
+
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t pt-8 text-sm text-slate-500 md:flex-row">
+          <p>
+            © {new Date().getFullYear()} SylvarStar. All rights reserved.
           </p>
 
-          <div className="mt-8 space-y-4">
+          <div className="flex gap-6">
+            <a href="#">Privacy</a>
 
-            <div className="flex items-start gap-3">
+            <a href="#">Terms</a>
 
-              <MapPin className="mt-1 h-5 w-5 text-indigo-600" />
+            <a href="#">LinkedIn</a>
 
-              <p className="text-sm text-slate-600">
-                SylvarStar Learning Center
-                <br />
-                1st Floor, H.NO:1-5/1, beside water tank
-                Nizampet, Hyderabad -500090
-                
-              </p>
-
-            </div>
-
-            <div className="flex items-center gap-3">
-
-              <Phone className="h-5 w-5 text-indigo-600" />
-
-              <span className="text-sm text-slate-600">
-                +91 70930 13375
-              </span>
-
-            </div>
-
-            <div className="flex items-center gap-3">
-
-              <Mail className="h-5 w-5 text-indigo-600" />
-
-              <span className="text-sm text-slate-600">
-                hello@sylvarstar.com
-              </span>
-
-            </div>
-
+            <a href="#">YouTube</a>
           </div>
-
         </div>
-
-        {/* Programs */}
-
-        <div>
-
-          <h4 className="font-semibold text-slate-900">
-            Training Programs
-          </h4>
-
-          <ul className="mt-6 space-y-3 text-slate-600">
-
-            <li>React Development</li>
-
-            <li>Angular</li>
-
-            <li>Java Full Stack</li>
-
-            <li>Python</li>
-
-            <li>Artificial Intelligence</li>
-
-          </ul>
-
-        </div>
-
-        {/* Company */}
-
-        <div>
-
-          <h4 className="font-semibold text-slate-900">
-            Company
-          </h4>
-
-          <ul className="mt-6 space-y-3 text-slate-600">
-
-            <li>About Us</li>
-
-            <li>Contact</li>
-
-            <li>Privacy Policy</li>
-
-            <li>Terms & Conditions</li>
-
-          </ul>
-
-        </div>
-
-        {/* Hours */}
-
-        <div>
-
-          <h4 className="font-semibold text-slate-900">
-            Business Hours
-          </h4>
-
-          <div className="mt-6 flex gap-3">
-
-            <Clock className="h-5 w-5 text-indigo-600" />
-
-            <div className="text-slate-600">
-
-              <p>Monday – Saturday</p>
-
-              <p>9:00 AM – 8:00 PM</p>
-
-            </div>
-
-          </div>
-
-          <div className="mt-8 flex gap-4">
-
-            {/* <Instagram className="h-5 w-5 cursor-pointer text-slate-500 hover:text-indigo-600" />
-
-            <Linkedin className="h-5 w-5 cursor-pointer text-slate-500 hover:text-indigo-600" />
-
-            <Youtube className="h-5 w-5 cursor-pointer text-slate-500 hover:text-indigo-600" /> */}
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div className="border-t py-6 text-center text-sm text-slate-500">
-        © 2026 SylvarStar Learning Center. All rights reserved.
-      </div>
-
+      </Container>
     </footer>
   );
 }
