@@ -1,9 +1,24 @@
 import { useMemo, useState } from "react";
-
+import { useSearchParams } from "react-router-dom";
 import { courses } from "../data/courses";
 
 export function useCourses() {
-  const [academy, setAcademy] = useState<"oracle" | "software">("oracle");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+const initialAcademy =
+  searchParams.get("academy") === "software"
+    ? "software"
+    : "oracle";
+
+const [academy, setAcademyState] =
+  useState<"oracle" | "software">(initialAcademy);
+  const setAcademy = (value: "oracle" | "software") => {
+  setAcademyState(value);
+
+  setSearchParams({
+    academy: value,
+  });
+};
   const [level, setLevel] = useState("All");
   const [search, setSearch] = useState("");
 

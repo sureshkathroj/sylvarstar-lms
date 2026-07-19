@@ -23,6 +23,7 @@ export function LearningPath() {
       features={path.features}
       button={path.button}
       theme={path.theme}
+      href={path.href}
     />
   ))}
 </div>

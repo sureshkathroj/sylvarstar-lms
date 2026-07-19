@@ -19,22 +19,26 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`
-    sticky
-    top-0
-    z-50
-    transition-all
-    duration-300
+    <header className="sticky top-0 z-[100]">
+      {/* Background Layer */}
+      <div
+        className={`
+          absolute
+          inset-0
+          -z-10
+          transition-all
+          duration-300
 
-    ${
-      scrolled
-        ? "border-b border-slate-200/60 bg-white/80 backdrop-blur-xl shadow-sm"
-        : "bg-white"
-    }
-  `}
-    >
-      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 lg:px-8">
+          ${
+            scrolled
+              ? "border-b border-slate-200/60 bg-white/80 backdrop-blur-xl shadow-sm"
+              : "bg-white"
+          }
+        `}
+      />
+
+      {/* Navbar Content */}
+      <div className="relative mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 lg:px-8">
         <Logo />
 
         <NavLinks />

@@ -1,13 +1,15 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface LearningPathCardProps {
-  title: string;
+   title: string;
   subtitle: string;
   icon: LucideIcon;
   features: string[];
   button: string;
   theme: "blue" | "purple";
+  href: string;
 }
 
 export function LearningPathCard({
@@ -17,6 +19,7 @@ export function LearningPathCard({
   features,
   button,
   theme,
+  href
 }: LearningPathCardProps) {
   const accent =
     theme === "blue"
@@ -108,23 +111,24 @@ export function LearningPathCard({
 
       {/* CTA */}
       <div className="mt-auto pt-10">
-        <button
-          className={`
-            group/button
-            inline-flex
-            items-center
-            font-semibold
-            transition-all
-            duration-300
-            hover:gap-3
-            ${buttonColor}
-          `}
-        >
-          {button}
+  <Link
+    to={href}
+    className={`
+      group/button
+      inline-flex
+      items-center
+      font-semibold
+      transition-all
+      duration-300
+      hover:gap-3
+      ${buttonColor}
+    `}
+  >
+    {button}
 
-          <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover/button:translate-x-2" />
-        </button>
-      </div>
+    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover/button:translate-x-2" />
+  </Link>
+</div>
     </article>
   );
 }

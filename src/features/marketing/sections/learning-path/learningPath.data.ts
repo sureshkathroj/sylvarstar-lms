@@ -19,6 +19,7 @@ export const learningPaths = [
     button: "Explore Oracle Fusion",
 
     theme: "blue",
+    href: "/courses?academy=oracle",
 
     illustration: "/images/learning-path/oracle.png",
   },
@@ -43,6 +44,7 @@ export const learningPaths = [
     button: "Explore Software Development",
 
     theme: "purple",
+    href: "/courses?academy=software",
 
     illustration: "/images/learning-path/software.png",
   },

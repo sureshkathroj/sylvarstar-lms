@@ -34,9 +34,23 @@ export function Hero() {
         "
       />
 
-      <div className="mx-auto max-w-[1500px] px-8">
+    <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
-    <div className="grid min-h-screen items-center gap-10 lg:grid-cols-12">
+  <div
+    className="
+      grid
+      min-h-[calc(100vh-80px)]
+      items-center
+      gap-12
+      pt-28
+      pb-16
+      lg:min-h-screen
+      lg:grid-cols-12
+      lg:gap-8
+      lg:pt-0
+      lg:pb-0
+    "
+  >
 
         <div className="lg:col-span-5">
             <HeroContent />
