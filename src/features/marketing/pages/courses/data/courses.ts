@@ -12,6 +12,68 @@ export const courses: Course[] = [
     level: "Beginner",
     mode: "Online + Classroom",
     featured: true,
+    overview:
+  "Oracle Fusion HCM Functional Training is designed to provide practical knowledge of Oracle Human Capital Management Cloud applications. The course covers workforce structures, Core HR, workforce lifecycle, security, approvals, reporting and real-world implementation scenarios.",
+
+whoShouldJoin: [
+  "Fresh Graduates",
+  "Working Professionals",
+  "HR Professionals",
+  "ERP Consultants",
+  "Career Switchers",
+],
+
+learningOutcomes: [
+  "Understand Oracle Fusion HCM architecture",
+  "Configure workforce structures",
+  "Manage employee lifecycle",
+  "Configure approvals and security",
+  "Generate OTBI & BI Publisher reports",
+  "Work on real-time implementation scenarios",
+],
+
+technologies: [
+  "Oracle Fusion Cloud",
+  "Core HR",
+  "Fast Formula",
+  "HDL",
+  "HCM Extracts",
+  "OTBI",
+  "BI Publisher",
+],
+
+curriculum: [
+  {
+    title: "Module 1 - Oracle Fusion Fundamentals",
+    topics: [
+      "ERP Introduction",
+      "Oracle Cloud Overview",
+      "Fusion Navigation",
+      "User Roles",
+      "Application Architecture",
+    ],
+  },
+  {
+    title: "Module 2 - Enterprise Structure",
+    topics: [
+      "Legal Employer",
+      "Business Units",
+      "Departments",
+      "Jobs",
+      "Positions",
+    ],
+  },
+  {
+    title: "Module 3 - Core HR",
+    topics: [
+      "Person Management",
+      "Hire Process",
+      "Transfers",
+      "Promotions",
+      "Termination",
+    ],
+  },
+]
   },
 
   {

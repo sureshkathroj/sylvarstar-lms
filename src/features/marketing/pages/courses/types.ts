@@ -1,29 +1,27 @@
-export type Academy = "oracle" | "software";
-
-export type Level =
-  | "Beginner"
-  | "Intermediate"
-  | "Advanced";
-
 export interface Course {
   id: string;
   slug: string;
-
-  academy: Academy;
+  academy: "oracle" | "software";
 
   title: string;
-
   shortDescription: string;
 
   duration: string;
-
-  level: Level;
-
+  level: string;
   mode: string;
 
   featured?: boolean;
 
-  comingSoon?: boolean;
+  overview?: string;
 
-  icon?: string;
+  whoShouldJoin?: string[];
+
+  learningOutcomes?: string[];
+
+  technologies?: string[];
+
+  curriculum?: {
+    title: string;
+    topics: string[];
+  }[];
 }

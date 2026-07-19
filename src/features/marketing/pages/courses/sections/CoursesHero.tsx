@@ -6,7 +6,7 @@ export function CoursesHero() {
           Courses
         </h1>
 
-        <p className="mt-3 text-lg text-slate-600">
+        <p className="mt-3 max-w-3xl text-lg text-slate-600">
           Browse our Oracle Fusion and Software Development training programs.
         </p>
       </div>
