@@ -3,33 +3,58 @@ import { Cloud } from "lucide-react";
 export function OracleCloud() {
   return (
     <div className="relative flex items-center justify-center">
+      {/* Outer Glow */}
       <div
         className="
           absolute
-          h-72
-          w-72
+          h-80
+          w-80
           rounded-full
           bg-cyan-500/20
-          blur-[80px]
+          blur-[90px]
+          transition-all
+          duration-700
+          group-hover:scale-110
+          group-hover:bg-cyan-400/30
         "
       />
 
+      {/* Animated Ring */}
+      <div
+        className="
+          absolute
+          h-[420px]
+          w-[420px]
+          rounded-full
+          border
+          border-cyan-400/10
+          animate-pulse
+        "
+      />
+
+      {/* Oracle Cloud Card */}
       <div
         className="
           relative
+          z-10
           flex
-          h-[340px]
-          w-[340px]
+          h-[380px]
+          w-[380px]
           flex-col
           items-center
           justify-center
-          rounded-[40px]
+          rounded-[42px]
           border
-          border-cyan-400/30
+          border-cyan-400/20
           bg-gradient-to-b
           from-white/15
-          to-white/5
+          to-white/[0.04]
           backdrop-blur-xl
+          transition-all
+          duration-500
+          group-hover:-translate-y-2
+          group-hover:border-cyan-300/60
+          group-hover:shadow-[0_0_80px_rgba(34,211,238,.25)]
         "
       >
         <div className="text-5xl font-black tracking-wide text-red-500">
