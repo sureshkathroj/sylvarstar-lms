@@ -10,10 +10,10 @@ export function LearningPath() {
 
       <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <LearningPathHeader />
 
-        <div className="mt-20 grid gap-8 lg:grid-cols-2">
+        <div className="mt-14 grid gap-8 lg:grid-cols-2">
   {learningPaths.map((path) => (
     <LearningPathCard
       key={path.id}

@@ -29,6 +29,9 @@ export function HeroContent() {
       <HeroButtons />
 
       <HeroStats />
+      
     </div>
+    
   );
+  
 }

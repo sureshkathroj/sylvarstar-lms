@@ -10,11 +10,11 @@ export const learningPaths = [
     icon: Database,
 
     features: [
-      "6 Professional Courses",
-      "Live Projects",
-      "Online & Classroom Training",
-      "Career Guidance & Placement Support",
-    ],
+  "Live Classes",
+  "Real Projects",
+  "Industry Mentors",
+  "Placement Support",
+],
 
     button: "Explore Oracle Fusion",
 
@@ -34,11 +34,11 @@ export const learningPaths = [
     icon: Code2,
 
     features: [
-      "6+ Learning Tracks",
-      "AI Powered Curriculum",
-      "Real-world Projects",
-      "Job Ready Program",
-    ],
+  "React & Angular",
+  "AI Powered Learning",
+  "Hands-on Projects",
+  "Job Ready Program",
+],
 
     button: "Explore Software Development",
 

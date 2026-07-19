@@ -12,9 +12,39 @@ export function ContactInfoCard({
   lines,
 }: Props) {
   return (
-    <div className="flex gap-4 rounded-2xl border border-[#E4EAF5] bg-white p-5">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2F5BFF]/10">
-        <Icon className="h-6 w-6 text-[#2F5BFF]" />
+    <div className="
+group
+flex
+gap-4
+rounded-2xl
+border
+border-slate-200
+bg-white
+p-5
+transition-all
+duration-300
+hover:-translate-y-1
+hover:border-cyan-300
+hover:shadow-lg
+">
+      <div className="
+flex
+h-12
+w-12
+items-center
+justify-center
+rounded-xl
+bg-cyan-500/10
+transition-colors
+group-hover:bg-cyan-500
+">
+        <Icon className="
+h-6
+w-6
+text-cyan-600
+transition-colors
+group-hover:text-white
+" />
       </div>
 
       <div>

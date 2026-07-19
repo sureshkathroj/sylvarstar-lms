@@ -45,8 +45,9 @@ export function Footer() {
 
           <FooterColumn title="Contact" links={company} />
         </div>
-
+      
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t pt-8 text-sm text-slate-500 md:flex-row">
+          
           <p>
             © {new Date().getFullYear()} SylvarStar. All rights reserved.
           </p>

@@ -4,22 +4,23 @@ import { ContactInfoCard } from "./ContactInfo";
 
 export function ContactContent() {
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-10">
     <div>
 
-      <span className="rounded-full bg-[#2F5BFF]/10 px-3 py-1.5 text-sm font-semibold text-[#2F5BFF]">
-        ADMISSIONS OPEN
+      <span className="rounded-full bg-cyan-500/100 px-3 py-1.5 text-sm font-semibold text-cyan-600">
+        CONTACT US
       </span>
 
       <h2 className="mt-6 text-5xl font-bold leading-tight text-[#111827]">
-        Ready to Start
+        Let's Build Your Future
         <br />
-        Your IT Career?
+        Together.
       </h2>
 
       <p className="mt-6 max-w-xl text-lg leading-8 text-[#64748B]">
-        Talk directly with our mentors, attend a free demo class
-        and choose the right learning path for your career.
+        Whether you're exploring Oracle Fusion or
+Software Development, our mentors are here
+to help you choose the right learning path.
       </p>
 
       <div className="mt-10 grid gap-3">

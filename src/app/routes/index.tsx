@@ -8,6 +8,7 @@ import { AboutPage } from "@/features/marketing/pages/AboutPage";
 import { ContactPage } from "@/features/marketing/pages/ContactPage";
 import OracleFusionPage from "@/features/marketing/pages/OracleTechnologiesPage";
 import SoftwareDevelopmentPage from "@/features/marketing/pages/SoftwareDevelopmentPage";
+import { CoursesPage } from "@/features/marketing/pages/courses";
 
 
 export const router = createBrowserRouter([
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "courses",
+        element: <CoursesPage />
       },
       {
   path: "/programs/oracle-fusion",

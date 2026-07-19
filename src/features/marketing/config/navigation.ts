@@ -4,13 +4,13 @@ export const navigation = [
     href: "/",
   },
   {
-    label: "Oracle Fusion",
-    href: "/oracle-fusion",
+    label: "Courses",
+    href: "/courses",
   },
-  {
-    label: "Software Development",
-    href: "/software-development",
-  },
+  // {
+  //   label: "Software Development",
+  //   href: "/software-development",
+  // },
   {
     label: "About",
     href: "/about",
