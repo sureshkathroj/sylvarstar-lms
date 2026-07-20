@@ -10,6 +10,7 @@ import OracleFusionPage from "@/features/marketing/pages/OracleTechnologiesPage"
 import SoftwareDevelopmentPage from "@/features/marketing/pages/SoftwareDevelopmentPage";
 import { CoursesPage } from "@/features/marketing/pages/courses";
 import CourseDetailsPage from "@/features/marketing/pages/courses/CourseDetailsPage";
+import AuthTestPage from "@/features/auth/pages/AuthTestPage";
 
 
 
@@ -26,10 +27,7 @@ export const router = createBrowserRouter([
       {
         path: "/technology-tracks",
         element: <ProgramsPage />,
-    },
-
-      
-
+      },
       {
         path: "/blog",
         element: <BlogPage />,
@@ -49,18 +47,22 @@ export const router = createBrowserRouter([
         element: <CoursesPage />
       },
       {
-  path: "/courses/:slug",
-  element: <CourseDetailsPage />,
-},
+        path: "/courses/:slug",
+        element: <CourseDetailsPage />,
+      },
+      {
+        path: "/auth-test",
+        element: <AuthTestPage />,
+      },
 
       {
-  path: "/programs/oracle-fusion",
-  element: <OracleFusionPage />,
-},
-{
-  path: "/programs/software-development",
-  element: <SoftwareDevelopmentPage/>
-}
+        path: "/programs/oracle-fusion",
+        element: <OracleFusionPage />,
+      },
+      {
+        path: "/programs/software-development",
+        element: <SoftwareDevelopmentPage />
+      }
     ],
   },
 ]);
