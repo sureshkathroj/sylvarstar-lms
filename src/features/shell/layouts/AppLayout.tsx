@@ -1,11 +1,11 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-
+import { useAuth } from "@/features/auth/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { authService } from "@/features/auth/services/auth.service";
 
 export default function AppLayout() {
   const navigate = useNavigate();
-
+  const { appUser } = useAuth();
   const handleLogout = async () => {
     try {
       await authService.logout();
@@ -16,10 +16,9 @@ export default function AppLayout() {
   };
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `block rounded-lg px-4 py-2 transition-colors ${
-      isActive
-        ? "bg-blue-600 text-white"
-        : "text-slate-700 hover:bg-slate-100"
+    `block rounded-lg px-4 py-2 transition-colors ${isActive
+      ? "bg-blue-600 text-white"
+      : "text-slate-700 hover:bg-slate-100"
     }`;
 
   return (
@@ -53,6 +52,12 @@ export default function AppLayout() {
           >
             Profile
           </NavLink>
+          <NavLink
+            to="/app/enquiries"
+            className={navLinkClass}
+          >
+            Enquiries
+          </NavLink>
         </nav>
       </aside>
 
@@ -61,9 +66,15 @@ export default function AppLayout() {
 
         <header className="flex h-16 items-center justify-between border-b bg-white px-8">
 
-          <h2 className="text-lg font-semibold">
-            Dashboard
-          </h2>
+          <div>
+            <h2 className="text-lg font-semibold">
+              Dashboard
+            </h2>
+
+            <p className="text-sm text-slate-500">
+              Welcome, {appUser?.displayName}
+            </p>
+          </div>
 
           <Button
             variant="outline"
