@@ -36,6 +36,7 @@ export function AuthProvider({
   const [loading, setLoading] = useState(true);
 
   async function loadUser(user: User | null) {
+  try {
     if (!user) {
       setFirebaseUser(null);
       setAppUser(null);
@@ -46,14 +47,34 @@ export function AuthProvider({
     const profile = await userService.getUser(user.uid);
 
     if (!profile) {
+      setFirebaseUser(null);
+      setAppUser(null);
+      setLoading(false);
+
+      await authService.logout();
+      return;
+    }
+
+    if (profile.status !== "active") {
+      setFirebaseUser(null);
+      setAppUser(null);
+      setLoading(false);
+
       await authService.logout();
       return;
     }
 
     setFirebaseUser(user);
     setAppUser(profile);
+  } catch (error) {
+    console.error("Failed to load user profile:", error);
+
+    setFirebaseUser(null);
+    setAppUser(null);
+  } finally {
     setLoading(false);
   }
+}
 
   async function refreshUser() {
     if (!firebaseUser) return;

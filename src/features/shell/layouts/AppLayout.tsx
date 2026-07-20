@@ -1,40 +1,76 @@
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+
+import { Button } from "@/components/ui/button";
+import { authService } from "@/features/auth/services/auth.service";
 
 export default function AppLayout() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await authService.logout();
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
+  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+    `block rounded-lg px-4 py-2 transition-colors ${
+      isActive
+        ? "bg-blue-600 text-white"
+        : "text-slate-700 hover:bg-slate-100"
+    }`;
+
   return (
     <div className="flex min-h-screen bg-slate-100">
       {/* Sidebar */}
       <aside className="w-64 border-r bg-white">
-        <div className="p-6 text-xl font-bold text-blue-600">
-          SylvarStar LMS
+        <div className="border-b p-6">
+          <h1 className="text-xl font-bold text-blue-600">
+            SylvarStar LMS
+          </h1>
         </div>
 
-        <nav className="space-y-2 px-4">
-          <button className="w-full rounded-lg px-4 py-2 text-left hover:bg-slate-100">
+        <nav className="space-y-2 p-4">
+          <NavLink
+            to="/app/dashboard"
+            className={navLinkClass}
+          >
             Dashboard
-          </button>
+          </NavLink>
 
-          <button className="w-full rounded-lg px-4 py-2 text-left hover:bg-slate-100">
+          <NavLink
+            to="/app/courses"
+            className={navLinkClass}
+          >
             My Courses
-          </button>
+          </NavLink>
 
-          <button className="w-full rounded-lg px-4 py-2 text-left hover:bg-slate-100">
+          <NavLink
+            to="/app/profile"
+            className={navLinkClass}
+          >
             Profile
-          </button>
+          </NavLink>
         </nav>
       </aside>
 
+      {/* Content */}
       <div className="flex flex-1 flex-col">
 
         <header className="flex h-16 items-center justify-between border-b bg-white px-8">
 
-          <h1 className="text-xl font-semibold">
+          <h2 className="text-lg font-semibold">
             Dashboard
-          </h1>
+          </h2>
 
-          <div>
-            User
-          </div>
+          <Button
+            variant="outline"
+            onClick={handleLogout}
+          >
+            Logout
+          </Button>
 
         </header>
 

@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import HomePage from "@/features/marketing/pages/HomePage";
 import { MarketingLayout } from "@/features/marketing/layout/MarketingLayout";
@@ -77,14 +77,19 @@ export const router = createBrowserRouter([
   element: <ProtectedRoute />,
   children: [
     {
+      path: "/app",
       element: <AppLayout />,
       children: [
         {
-          path: "/app",
+          index: true,
+          element: <Navigate to="dashboard" replace />,
+        },
+        {
+          path: "dashboard",
           element: <DashboardPage />,
         },
       ],
     },
   ],
-},
+}
 ]);

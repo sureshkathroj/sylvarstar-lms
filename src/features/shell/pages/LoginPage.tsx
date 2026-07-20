@@ -1,46 +1,123 @@
+import { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { authService } from "@/features/auth/services/auth.service";
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
 export default function LoginPage() {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setError("");
+
+    try {
+      await authService.login(email, password);
+
+      navigate("/app/dashboard");
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-100">
+    <div className="flex min-h-screen items-center justify-center bg-slate-100 p-6">
 
-      <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-lg">
+      <Card className="w-full max-w-md">
 
-        <h1 className="mb-2 text-3xl font-bold">
-          Login
-        </h1>
+        <CardHeader>
 
-        <p className="mb-8 text-slate-500">
-          Welcome back to SylvarStar LMS
-        </p>
-
-        <form className="space-y-5">
-
-          <div>
-            <label>Email</label>
-
-            <input
-              type="email"
-              className="mt-1 w-full rounded-lg border p-3"
-            />
-          </div>
-
-          <div>
-            <label>Password</label>
-
-            <input
-              type="password"
-              className="mt-1 w-full rounded-lg border p-3"
-            />
-          </div>
-
-          <button
-            className="w-full rounded-lg bg-blue-600 py-3 font-medium text-white hover:bg-blue-700"
-          >
+          <CardTitle className="text-2xl">
             Login
-          </button>
+          </CardTitle>
 
-        </form>
+          <CardDescription>
+            Welcome back to SylvarStar LMS
+          </CardDescription>
 
-      </div>
+        </CardHeader>
+
+        <CardContent>
+
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
+
+            <div className="space-y-2">
+
+              <Label htmlFor="email">
+                Email
+              </Label>
+
+              <Input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+            </div>
+
+            <div className="space-y-2">
+
+              <Label htmlFor="password">
+                Password
+              </Label>
+
+              <Input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+            </div>
+
+            {error && (
+              <div className="rounded-md bg-red-50 p-3 text-sm text-red-600">
+                {error}
+              </div>
+            )}
+
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={loading}
+            >
+              {loading ? "Signing In..." : "Login"}
+            </Button>
+
+          </form>
+
+        </CardContent>
+
+      </Card>
 
     </div>
   );
