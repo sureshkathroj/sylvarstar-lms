@@ -5,47 +5,90 @@ import {
   useState,
 } from "react";
 
-import type { User } from "firebase/auth";
-import { onAuthStateChanged } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  type User,
+} from "firebase/auth";
 
 import { auth } from "@/lib/firebase";
+import { userService } from "@/features/users/services/user.service";
+import type { AppUser } from "@/features/users/types/user.types";
 
 import { authService } from "../services/auth.service";
 import type { AuthContextType } from "../types/auth.types";
 
-export const AuthContext = createContext<AuthContextType | null>(null);
+export const AuthContext =
+  createContext<AuthContextType | null>(null);
 
 interface Props {
   children: React.ReactNode;
 }
 
-export function AuthProvider({ children }: Props) {
-      console.log("✅ AuthProvider Rendered");
-  const [user, setUser] = useState<User | null>(null);
+export function AuthProvider({
+  children,
+}: Props) {
+  const [firebaseUser, setFirebaseUser] =
+    useState<User | null>(null);
+
+  const [appUser, setAppUser] =
+    useState<AppUser | null>(null);
 
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      setUser(firebaseUser);
-
+  async function loadUser(user: User | null) {
+    if (!user) {
+      setFirebaseUser(null);
+      setAppUser(null);
       setLoading(false);
-    });
+      return;
+    }
+
+    const profile = await userService.getUser(user.uid);
+
+    if (!profile) {
+      await authService.logout();
+      return;
+    }
+
+    setFirebaseUser(user);
+    setAppUser(profile);
+    setLoading(false);
+  }
+
+  async function refreshUser() {
+    if (!firebaseUser) return;
+
+    const profile = await userService.getUser(
+      firebaseUser.uid
+    );
+
+    setAppUser(profile);
+  }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      loadUser
+    );
 
     return unsubscribe;
   }, []);
 
   const value = useMemo(
     () => ({
-      user,
+      firebaseUser,
+
+      appUser,
 
       loading,
 
       login: authService.login,
 
       logout: authService.logout,
+
+      refreshUser,
     }),
-    [user, loading]
+    [firebaseUser, appUser, loading]
   );
 
   return (

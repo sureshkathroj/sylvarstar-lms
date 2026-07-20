@@ -1,7 +1,11 @@
 import { useAuth } from "../hooks/useAuth";
 
 export default function AuthTestPage() {
-  const { user, loading } = useAuth();
+  const {
+    loading,
+    firebaseUser,
+    appUser,
+  } = useAuth();
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -9,20 +13,25 @@ export default function AuthTestPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className="space-y-2">
+      <div className="space-y-3">
 
         <h1 className="text-3xl font-bold">
-
           Auth Working ✅
-
         </h1>
 
         <p>
+          Firebase:
+          {firebaseUser?.email ?? "Not Logged In"}
+        </p>
 
-          Logged User:
+        <p>
+          Role:
+          {appUser?.role ?? "-"}
+        </p>
 
-          {user?.email ?? "Not Logged In"}
-
+        <p>
+          Status:
+          {appUser?.status ?? "-"}
         </p>
 
       </div>

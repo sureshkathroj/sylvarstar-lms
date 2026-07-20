@@ -11,6 +11,10 @@ import SoftwareDevelopmentPage from "@/features/marketing/pages/SoftwareDevelopm
 import { CoursesPage } from "@/features/marketing/pages/courses";
 import CourseDetailsPage from "@/features/marketing/pages/courses/CourseDetailsPage";
 import AuthTestPage from "@/features/auth/pages/AuthTestPage";
+import LoginPage from "@/features/shell/pages/LoginPage";
+import ProtectedRoute from "@/features/auth/guards/ProtectedRoute";
+import AppLayout from "@/features/shell/layouts/AppLayout";
+import DashboardPage from "@/features/shell/pages/DashboardPage";
 
 
 
@@ -62,7 +66,25 @@ export const router = createBrowserRouter([
       {
         path: "/programs/software-development",
         element: <SoftwareDevelopmentPage />
-      }
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
     ],
   },
+  {
+  element: <ProtectedRoute />,
+  children: [
+    {
+      element: <AppLayout />,
+      children: [
+        {
+          path: "/app",
+          element: <DashboardPage />,
+        },
+      ],
+    },
+  ],
+},
 ]);
