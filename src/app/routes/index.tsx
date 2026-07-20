@@ -12,6 +12,7 @@ import { CoursesPage } from "@/features/marketing/pages/courses";
 import CourseDetailsPage from "@/features/marketing/pages/courses/CourseDetailsPage";
 
 
+
 export const router = createBrowserRouter([
   {
     element: <MarketingLayout />,
@@ -51,6 +52,7 @@ export const router = createBrowserRouter([
   path: "/courses/:slug",
   element: <CourseDetailsPage />,
 },
+
       {
   path: "/programs/oracle-fusion",
   element: <OracleFusionPage />,
