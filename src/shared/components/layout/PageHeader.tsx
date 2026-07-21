@@ -1,41 +1,29 @@
-import { Button } from "@/components/ui/button";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface PageHeaderProps {
   title: string;
   description?: string;
-  actionLabel?: string;
-  actionIcon?: ReactNode;
-  onActionClick?: () => void;
+  actions?: ReactNode;
 }
 
 export default function PageHeader({
   title,
   description,
-  actionLabel,
-  actionIcon,
-  onActionClick,
+  actions,
 }: PageHeaderProps) {
   return (
-    <div className="flex items-start justify-between">
+    <div className="flex items-center justify-between">
       <div>
-        <h1 className="text-3xl font-bold">
-          {title}
-        </h1>
+        <h1 className="text-3xl font-bold">{title}</h1>
 
         {description && (
-          <p className="mt-1 text-slate-500">
+          <p className="text-muted-foreground mt-1">
             {description}
           </p>
         )}
       </div>
 
-      {actionLabel && (
-        <Button onClick={onActionClick}>
-          {actionIcon}
-          {actionLabel}
-        </Button>
-      )}
+      {actions && <div>{actions}</div>}
     </div>
   );
 }

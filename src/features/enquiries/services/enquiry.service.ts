@@ -5,6 +5,8 @@ import {
   orderBy,
   query,
   serverTimestamp,
+  updateDoc,
+  doc,
 } from "firebase/firestore";
 
 import { db } from "@/lib/firebase";
@@ -19,6 +21,7 @@ export interface CreateEnquiryRequest {
   message: string;
 }
 
+
 class EnquiryService {
   async createEnquiry(data: CreateEnquiryRequest) {
     return addDoc(collection(db, "enquiries"), {
@@ -29,6 +32,7 @@ class EnquiryService {
       updatedAt: serverTimestamp(),
     });
   }
+
 
   async getEnquiries(): Promise<Enquiry[]> {
     const q = query(
@@ -43,6 +47,24 @@ class EnquiryService {
       ...(doc.data() as Omit<Enquiry, "id">),
     }));
   }
+  async convertEnquiry(
+    enquiryId: string,
+    studentId: string
+  ) {
+    await updateDoc(
+      doc(db, "enquiries", enquiryId),
+      {
+
+        status: "converted",
+
+        studentId,
+
+        updatedAt: serverTimestamp(),
+
+      }
+    );
+  }
+
 }
 
 export const enquiryService = new EnquiryService();
