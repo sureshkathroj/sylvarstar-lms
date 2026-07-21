@@ -10,6 +10,7 @@ import StudentDialog from "../components/StudentDialog";
 import { studentService } from "../services/student.service";
 import { toast } from "sonner";
 import StudentSearch from "../components/StudentSearch";
+import AssignCourseDialog from "@/features/student-courses/components/AssignCourseDialog";
 
 export default function StudentsPage() {
     const [search, setSearch] = useState("");
@@ -38,6 +39,11 @@ export default function StudentsPage() {
     >("create");
     const [studentDialogOpen, setStudentDialogOpen] =
         useState(false);
+
+    const [
+        assignCourseOpen,
+        setAssignCourseOpen,
+    ] = useState(false);
 
     const filteredStudents = students.filter((student) => {
 
@@ -98,18 +104,15 @@ export default function StudentsPage() {
                             setSelectedStudent(student);
                             setStudentDialogOpen(true);
                         }}
-
                         onToggleStatus={async (student) => {
 
                             await studentService.updateStudentStatus(
-
                                 student.id,
-
                                 student.status === "active"
                                     ? "inactive"
                                     : "active"
-
                             );
+
                             toast.success(
                                 student.status === "active"
                                     ? "Student deactivated."
@@ -117,6 +120,13 @@ export default function StudentsPage() {
                             );
 
                             await refresh();
+
+                        }}
+                        onAssignCourse={(student) => {
+
+                            setSelectedStudent(student);
+
+                            setAssignCourseOpen(true);
 
                         }}
                     />
@@ -132,6 +142,15 @@ export default function StudentsPage() {
                 onSuccess={async () => {
                     setStudentDialogOpen(false);
                     await refresh();
+                }}
+            />
+            <AssignCourseDialog
+                open={assignCourseOpen}
+                onOpenChange={setAssignCourseOpen}
+                student={selectedStudent}
+                onSuccess={() => {
+                    setAssignCourseOpen(false);
+                    refresh();
                 }}
             />
         </div>

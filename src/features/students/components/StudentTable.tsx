@@ -7,12 +7,14 @@ interface StudentTableProps {
   students: Student[];
   onEdit: (student: Student) => void;
   onToggleStatus: (student: Student) => void;
+  onAssignCourse: (student: Student) => void;
 }
 
 export default function StudentTable({
   students,
   onEdit,
   onToggleStatus,
+  onAssignCourse
 }: StudentTableProps) {
   return (
     <div className="overflow-hidden rounded-lg border bg-white">
@@ -58,6 +60,14 @@ export default function StudentTable({
                     {student.status === "active"
                       ? "Deactivate"
                       : "Activate"}
+                  </Button>
+
+                  <Button
+                    variant="default"
+                    size="sm"
+                    onClick={() => onAssignCourse(student)}
+                  >
+                    Assign Course
                   </Button>
                 </div>
               </td>
