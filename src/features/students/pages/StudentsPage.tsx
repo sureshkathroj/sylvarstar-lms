@@ -9,8 +9,10 @@ import { useState } from "react";
 import StudentDialog from "../components/StudentDialog";
 import { studentService } from "../services/student.service";
 import { toast } from "sonner";
+import StudentSearch from "../components/StudentSearch";
 
 export default function StudentsPage() {
+    const [search, setSearch] = useState("");
     const {
         students,
         loading,
@@ -37,6 +39,18 @@ export default function StudentsPage() {
     const [studentDialogOpen, setStudentDialogOpen] =
         useState(false);
 
+    const filteredStudents = students.filter((student) => {
+
+        const keyword = search.toLowerCase();
+
+        return (
+            student.name.toLowerCase().includes(keyword) ||
+            student.email.toLowerCase().includes(keyword) ||
+            student.phone.toLowerCase().includes(keyword)
+        );
+
+    });
+
     return (
         <div className="space-y-8">
             <PageHeader
@@ -54,10 +68,10 @@ export default function StudentsPage() {
                     </Button>
                 }
             />
-
-            {loading && (
-                <p>Loading students...</p>
-            )}
+            <StudentSearch
+                value={search}
+                onChange={setSearch}
+            />
 
             {!loading && students.length === 0 && (
                 <EmptyState
@@ -66,10 +80,19 @@ export default function StudentsPage() {
                 />
             )}
 
-            {!loading && students.length > 0 && (
+            {!loading &&
+                students.length > 0 &&
+                filteredStudents.length === 0 && (
+                    <EmptyState
+                        title="No Results"
+                        description="No students match your search."
+                    />
+                )}
+
+            {!loading && filteredStudents.length > 0 && (
                 <div>
                     <StudentTable
-                        students={students}
+                        students={filteredStudents}
                         onEdit={(student) => {
                             setDialogMode("edit");
                             setSelectedStudent(student);
