@@ -9,14 +9,20 @@ import type { Enquiry } from "@/features/enquiries/types/enquiry.types";
 
 import StudentForm from "./StudentForm";
 
+import type { Student } from "../types/student.types";
+
 interface StudentDialogProps {
     open: boolean;
-
     onOpenChange: (open: boolean) => void;
 
-    mode: "create" | "convert";
+    mode:
+    | "create"
+    | "convert"
+    | "edit";
 
     enquiry?: Enquiry;
+
+    student?: Student;
 
     onSuccess: () => void;
 }
@@ -26,6 +32,7 @@ export default function StudentDialog({
     onOpenChange,
     mode,
     enquiry,
+    student,
     onSuccess,
 }: StudentDialogProps) {
     return (
@@ -38,25 +45,21 @@ export default function StudentDialog({
                 <DialogHeader>
 
                     <DialogTitle>
-                        {mode === "create"
-                            ? "Create Student"
-                            : "Convert Enquiry"}
+                       {mode === "create"
+    ? "Create Student"
+    : mode === "convert"
+    ? "Convert Enquiry"
+    : "Edit Student"}
                     </DialogTitle>
 
                 </DialogHeader>
 
                 <StudentForm
-
                     mode={mode}
-
                     enquiry={enquiry}
-
+                    student={student}
                     onSuccess={onSuccess}
-
-                    onCancel={() =>
-                        onOpenChange(false)
-                    }
-
+                    onCancel={() => onOpenChange(false)}
                 />
 
             </DialogContent>

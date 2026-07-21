@@ -4,51 +4,113 @@ import { Button } from "@/components/ui/button";
 
 import { useStudents } from "../hooks/useStudents";
 import StudentTable from "../components/StudentTable";
+import { Student } from "../types/student.types";
+import { useState } from "react";
+import StudentDialog from "../components/StudentDialog";
+import { studentService } from "../services/student.service";
+import { toast } from "sonner";
 
 export default function StudentsPage() {
-  const {
-    students,
-    loading,
-  } = useStudents();
+    const {
+        students,
+        loading,
+        refresh,
+    } = useStudents();
+    const [
 
-  return (
-    <div className="space-y-8">
-      <PageHeader
-        title="Students"
-        description="Manage admitted students"
-        actions={
-          <Button>
-            Create Student
-          </Button>
-        }
-      />
+        selectedStudent,
 
-      {loading && (
-        <p>Loading students...</p>
-      )}
+        setSelectedStudent,
 
-      {!loading && students.length === 0 && (
-        <EmptyState
-          title="No Students"
-          description="Students will appear here after admission."
-        />
-      )}
+    ] =
+        useState<Student>();
+    const [
 
-      {!loading && students.length > 0 && (
-        <div>
-          <StudentTable
-  students={students}
-  onEdit={(student) => {
-    console.log("Edit", student);
-  }}
-  onToggleStatus={(student) => {
-    console.log("Toggle", student);
-  }}
-/>
+        dialogMode,
 
-          {/* StudentTable will be added in the next step */}
+        setDialogMode,
+
+    ] = useState<
+        "create"
+        | "edit"
+    >("create");
+    const [studentDialogOpen, setStudentDialogOpen] =
+        useState(false);
+
+    return (
+        <div className="space-y-8">
+            <PageHeader
+                title="Students"
+                description="Manage admitted students"
+                actions={
+                    <Button
+                        onClick={() => {
+                            setDialogMode("create");
+                            setSelectedStudent(undefined);
+                            setStudentDialogOpen(true);
+                        }}
+                    >
+                        Create Student
+                    </Button>
+                }
+            />
+
+            {loading && (
+                <p>Loading students...</p>
+            )}
+
+            {!loading && students.length === 0 && (
+                <EmptyState
+                    title="No Students"
+                    description="Students will appear here after admission."
+                />
+            )}
+
+            {!loading && students.length > 0 && (
+                <div>
+                    <StudentTable
+                        students={students}
+                        onEdit={(student) => {
+                            setDialogMode("edit");
+                            setSelectedStudent(student);
+                            setStudentDialogOpen(true);
+                        }}
+
+                        onToggleStatus={async (student) => {
+
+                            await studentService.updateStudentStatus(
+
+                                student.id,
+
+                                student.status === "active"
+                                    ? "inactive"
+                                    : "active"
+
+                            );
+                            toast.success(
+                                student.status === "active"
+                                    ? "Student deactivated."
+                                    : "Student activated."
+                            );
+
+                            await refresh();
+
+                        }}
+                    />
+
+
+                </div>
+            )}
+            <StudentDialog
+                open={studentDialogOpen}
+                onOpenChange={setStudentDialogOpen}
+                mode={dialogMode}
+                student={selectedStudent}
+                onSuccess={async () => {
+                    setStudentDialogOpen(false);
+                    await refresh();
+                }}
+            />
         </div>
-      )}
-    </div>
-  );
+    );
 }

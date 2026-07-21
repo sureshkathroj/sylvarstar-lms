@@ -12,36 +12,40 @@ import { studentService } from "../services/student.service";
 import { enquiryService } from "@/features/enquiries/services/enquiry.service";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import type { Student } from "../types/student.types";
 
 
 interface StudentFormProps {
 
     mode:
     | "create"
-    | "convert";
+    | "convert"
+    | "edit";
 
     enquiry?: Enquiry;
+
+    student?: Student;
 
     onSuccess: () => void;
 
     onCancel: () => void;
-
 }
 
 export default function StudentForm({
     mode,
     enquiry,
+    student,
     onSuccess,
     onCancel,
 }: StudentFormProps) {
 
     const form = useForm<
-  z.input<typeof studentSchema>,
-  any,
-  z.output<typeof studentSchema>
->({
-  resolver: zodResolver(studentSchema),
-  defaultValues: {
+        z.input<typeof studentSchema>,
+        any,
+        z.output<typeof studentSchema>
+    >({
+        resolver: zodResolver(studentSchema),
+        defaultValues: {
             name: "",
             email: "",
             phone: "",
@@ -55,57 +59,108 @@ export default function StudentForm({
         },
     });
     useEffect(() => {
-        if (mode === "convert" && enquiry) {
+
+        if (
+            mode === "convert" &&
+            enquiry
+        ) {
+
             form.reset({
+
                 name: enquiry.name,
                 email: enquiry.email,
                 phone: enquiry.phone,
                 academy: enquiry.academy,
                 mode: enquiry.mode,
+
                 course: "",
                 batch: "",
                 trainer: "",
                 admissionDate: "",
                 fee: 0,
-            });
-        }
-    }, [mode, enquiry, form]);
-    const onSubmit = async (
-        values: StudentFormValues
-    ) => {
 
+            });
+
+        }
+
+        if (
+            mode === "edit" &&
+            student
+        ) {
+
+            form.reset({
+
+                name: student.name,
+                email: student.email,
+                phone: student.phone,
+
+                academy: student.academy,
+
+                mode: student.mode,
+
+                course: student.course,
+
+                batch: student.batch,
+
+                trainer: student.trainer,
+
+                admissionDate: student.admissionDate,
+
+                fee: student.fee,
+
+            });
+
+        }
+
+    }, [
+        mode,
+        enquiry,
+        student,
+        form,
+    ]);
+    const onSubmit = async (values: StudentFormValues) => {
         try {
 
-            const studentId =
-                await studentService.createStudent({
+            if (mode === "edit" && student) {
 
-                    ...values,
-
-                    status: "active",
-
-                });
-
-            if (
-                mode === "convert" &&
-                enquiry
-            ) {
-
-                await enquiryService.convertEnquiry(
-                    enquiry.id,
-                    studentId
+                await studentService.updateStudent(
+                    student.id,
+                    values
                 );
 
+                toast.success("Student updated successfully.");
+
+            } else {
+
+                const studentId =
+                    await studentService.createStudent({
+                        ...values,
+                        status: "active",
+                    });
+
+                if (mode === "convert" && enquiry) {
+                    await enquiryService.convertEnquiry(
+                        enquiry.id,
+                        studentId
+                    );
+                }
+
+                toast.success("Student created successfully.");
             }
 
             onSuccess();
-            toast.success("Student created successfully.");
+
         } catch (err) {
 
-            toast.error("Failed to create student.");
+            console.error(err);
 
+            toast.error(
+                mode === "edit"
+                    ? "Failed to update student."
+                    : "Failed to create student."
+            );
         }
-
-    }
+    };
     return (
 
         <form
@@ -209,7 +264,9 @@ export default function StudentForm({
                 <Button type="submit">
                     {mode === "create"
                         ? "Create Student"
-                        : "Convert Student"}
+                        : mode === "convert"
+                            ? "Convert Student"
+                            : "Update Student"}
                 </Button>
             </div>
         </form>
