@@ -11,6 +11,7 @@ import FormTextField from "@/shared/components/form/FormTextField";
 import { studentService } from "../services/student.service";
 import { enquiryService } from "@/features/enquiries/services/enquiry.service";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 
 interface StudentFormProps {
@@ -97,10 +98,10 @@ export default function StudentForm({
             }
 
             onSuccess();
-
+            toast.success("Student created successfully.");
         } catch (err) {
 
-            console.error(err);
+            toast.error("Failed to create student.");
 
         }
 

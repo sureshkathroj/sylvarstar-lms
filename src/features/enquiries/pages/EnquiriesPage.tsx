@@ -35,22 +35,22 @@ export default function EnquiriesPage() {
     setStudentDialogOpen(true);
   };
 
+  const loadEnquiries = async () => {
+  try {
+    setLoading(true);
+
+    const data = await enquiryService.getEnquiries();
+    setEnquiries(data);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setLoading(false);
+  }
+};
+
   useEffect(() => {
-    async function load() {
-      try {
-        const data = await enquiryService.getEnquiries();
-        console.log("Enquiries:", data);
-        setEnquiries(data);
-      } catch (err) {
-        console.error(err);
-
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    load();
-  }, []);
+  loadEnquiries();
+}, []);
 
   return (
     <div className="space-y-8">
@@ -89,11 +89,9 @@ export default function EnquiriesPage() {
   mode={studentDialogMode}
   enquiry={selectedEnquiry}
   onSuccess={async () => {
-    setStudentDialogOpen(false);
-
-    const data = await enquiryService.getEnquiries();
-    setEnquiries(data);
-  }}
+  setStudentDialogOpen(false);
+  await loadEnquiries();
+}}
 />
 
     </div>

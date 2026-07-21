@@ -1,5 +1,7 @@
+
 import type { Enquiry } from "../types/enquiry.types";
 import EnquiryStatusBadge from "./EnquiryStatusBadge";
+import { Button } from "@/components/ui/button";
 
 interface EnquiryTableProps {
   enquiries: Enquiry[];
@@ -39,13 +41,15 @@ export default function EnquiryTable({
                 />
               </td>
               <td className="p-4">
-                <button
-                  className="text-blue-500"
-                  onClick={() => onConvert(enquiry)}
-                >
-                  Convert
-                </button>
-              </td>
+  <Button
+    disabled={enquiry.status === "converted"}
+    onClick={() => onConvert(enquiry)}
+  >
+    {enquiry.status === "converted"
+      ? "Converted"
+      : "Convert"}
+  </Button>
+</td>
             </tr>
           ))}
         </tbody>
