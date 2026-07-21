@@ -2,8 +2,9 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "@/features/auth/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { authService } from "@/features/auth/services/auth.service";
+import { ROUTES } from "@/app/constants/routes";
 
-export default function AppLayout() {
+export default function AdminLayout() {
   const navigate = useNavigate();
   const { appUser } = useAuth();
   const handleLogout = async () => {
@@ -32,38 +33,69 @@ export default function AppLayout() {
         </div>
 
         <nav className="space-y-2 p-4">
+          <div>
           <NavLink
             to="/app/dashboard"
             className={navLinkClass}
           >
-            Dashboard
+            <b>Dashboard</b>
           </NavLink>
+          </div>
 
-          <NavLink
-            to="/app/courses"
-            className={navLinkClass}
-          >
-            My Courses
-          </NavLink>
-
-          <NavLink
-            to="/app/profile"
-            className={navLinkClass}
-          >
-            Profile
-          </NavLink>
-          <NavLink
+          <div>
+            <b>Admissions</b>
+            <NavLink
             to="/app/enquiries"
             className={navLinkClass}
           >
             Enquiries
           </NavLink>
-          <NavLink
-            to="/app/students"
-            className={navLinkClass}
-          >
+          <NavLink to={ROUTES.students} className={navLinkClass}>
             Students
           </NavLink>
+            </div>
+
+            <div>
+            <b>Academics</b>
+            <NavLink
+            to="/app/courses"
+            className={navLinkClass}
+          >
+            Courses
+          </NavLink>
+          <NavLink
+            to="/app/trainers"
+            className={navLinkClass}
+          >
+            Trainers
+          </NavLink>
+          <NavLink
+            to="/app/batches"
+            className={navLinkClass}
+          >
+            Batches
+          </NavLink>
+            </div>
+
+            <div>
+            <b>Administration</b>
+            <NavLink
+            to="/app/users"
+            className={navLinkClass}
+          >
+            Users
+          </NavLink>
+          <NavLink
+            to="/app/settings"
+            className={navLinkClass}
+          >
+            Settings
+          </NavLink>
+            </div>
+
+
+          
+          
         </nav>
       </aside>
 

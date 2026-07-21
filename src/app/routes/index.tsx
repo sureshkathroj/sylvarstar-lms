@@ -13,10 +13,11 @@ import CourseDetailsPage from "@/features/marketing/pages/courses/CourseDetailsP
 import AuthTestPage from "@/features/auth/pages/AuthTestPage";
 import LoginPage from "@/features/shell/pages/LoginPage";
 import ProtectedRoute from "@/features/auth/guards/ProtectedRoute";
-import AppLayout from "@/features/shell/layouts/AppLayout";
+import AppLayout from "@/features/shell/layouts/AdminLayout";
 import DashboardPage from "@/features/shell/pages/DashboardPage";
 import EnquiriesPage from "@/features/enquiries/pages/EnquiriesPage";
 import StudentsPage from "@/features/students/pages/StudentsPage";
+import CoursesManagePage from "@/features/courses/pages/CoursesManagePage";
 
 
 
@@ -98,6 +99,10 @@ export const router = createBrowserRouter([
           {
             path: "students",
             element: <StudentsPage />,
+          },
+          {
+            path: "courses",
+            element: <CoursesManagePage />,
           }
         ],
       },
