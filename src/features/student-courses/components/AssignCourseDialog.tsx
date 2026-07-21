@@ -141,9 +141,11 @@ export default function AssignCourseDialog({
             </Label>
 
             <Select
-              value={courseId}
-              onValueChange={setCourseId}
-            >
+    value={courseId}
+    onValueChange={(value) => {
+        setCourseId(value ?? "");
+    }}
+>
 
               <SelectTrigger className="mt-2 w-full">
 
