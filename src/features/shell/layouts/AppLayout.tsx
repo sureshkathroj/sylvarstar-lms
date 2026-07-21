@@ -58,6 +58,12 @@ export default function AppLayout() {
           >
             Enquiries
           </NavLink>
+          <NavLink
+            to="/app/students"
+            className={navLinkClass}
+          >
+            Students
+          </NavLink>
         </nav>
       </aside>
 

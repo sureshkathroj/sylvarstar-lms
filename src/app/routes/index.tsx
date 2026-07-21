@@ -16,6 +16,7 @@ import ProtectedRoute from "@/features/auth/guards/ProtectedRoute";
 import AppLayout from "@/features/shell/layouts/AppLayout";
 import DashboardPage from "@/features/shell/pages/DashboardPage";
 import EnquiriesPage from "@/features/enquiries/pages/EnquiriesPage";
+import StudentsPage from "@/features/students/pages/StudentsPage";
 
 
 
@@ -75,27 +76,31 @@ export const router = createBrowserRouter([
     ],
   },
   {
-  element: <ProtectedRoute />,
-  children: [
-    {
-      path: "/app",
-      element: <AppLayout />,
-      children: [
-        {
-          index: true,
-          element: <Navigate to="dashboard" replace />,
-        },
-        {
-          path: "dashboard",
-          element: <DashboardPage />,
-        },
-        
-        {
-          path: "enquiries",
-          element: <EnquiriesPage />,
-        }
-      ],
-    },
-  ],
-}
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: "/app",
+        element: <AppLayout />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="dashboard" replace />,
+          },
+          {
+            path: "dashboard",
+            element: <DashboardPage />,
+          },
+
+          {
+            path: "enquiries",
+            element: <EnquiriesPage />,
+          },
+          {
+            path: "students",
+            element: <StudentsPage />,
+          }
+        ],
+      },
+    ],
+  }
 ]);

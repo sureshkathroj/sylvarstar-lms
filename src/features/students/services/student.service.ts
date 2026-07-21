@@ -1,6 +1,9 @@
 import {
   addDoc,
   collection,
+  getDocs,
+  orderBy,
+  query,
   serverTimestamp,
 } from "firebase/firestore";
 
@@ -26,6 +29,20 @@ class StudentService {
 
     return docRef.id;
   }
+
+  async getStudents() {
+    const snapshot = await getDocs(
+        query(
+            collection(db, "students"),
+            orderBy("createdAt", "desc")
+        )
+    );
+
+    return snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+    })) as Student[];
+}
 }
 
 export const studentService = new StudentService();
