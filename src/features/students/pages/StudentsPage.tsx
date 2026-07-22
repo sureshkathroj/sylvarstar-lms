@@ -11,6 +11,7 @@ import { studentService } from "../services/student.service";
 import { toast } from "sonner";
 import StudentSearch from "../components/StudentSearch";
 import AssignCourseDialog from "@/features/student-courses/components/AssignCourseDialog";
+import EnableLoginDialog from "../components/EnableLoginDialog";
 
 export default function StudentsPage() {
     const [search, setSearch] = useState("");
@@ -56,6 +57,12 @@ export default function StudentsPage() {
         );
 
     });
+const [isEnableLoginOpen, setIsEnableLoginOpen] = useState(false);
+
+const handleEnableLogin = (student: Student) => {
+    setSelectedStudent(student);
+    setIsEnableLoginOpen(true);
+};
 
     return (
         <div className="space-y-8">
@@ -129,6 +136,7 @@ export default function StudentsPage() {
                             setAssignCourseOpen(true);
 
                         }}
+                          onEnableLogin={handleEnableLogin}
                     />
 
 
@@ -153,6 +161,15 @@ export default function StudentsPage() {
                     refresh();
                 }}
             />
+            <EnableLoginDialog
+  open={isEnableLoginOpen}
+  student={selectedStudent}
+  onOpenChange={setIsEnableLoginOpen}
+  onSuccess={async () => {
+    setIsEnableLoginOpen(false);
+    await refresh();
+  }}
+/>
         </div>
     );
 }

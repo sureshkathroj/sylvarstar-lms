@@ -2,6 +2,7 @@ import {
   addDoc,
   collection,
   doc,
+  getDoc,
   getDocs,
   orderBy,
   query,
@@ -47,6 +48,19 @@ class CourseService {
         }) as Course
     );
   }
+
+  async getCourse(id: string) {
+  const snapshot = await getDoc(doc(db, "courses", id));
+
+  if (!snapshot.exists()) {
+    return null;
+  }
+
+  return {
+    id: snapshot.id,
+    ...snapshot.data(),
+  } as Course;
+}
 
   async updateCourse(
     id: string,

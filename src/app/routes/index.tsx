@@ -19,6 +19,7 @@ import EnquiriesPage from "@/features/enquiries/pages/EnquiriesPage";
 import StudentsPage from "@/features/students/pages/StudentsPage";
 import CoursesManagePage from "@/features/courses/pages/CoursesManagePage";
 import AssignCoursePage from "@/features/student-courses/pages/AssignCoursePage";
+import MyCoursesPage from "@/features/student/pages/MyCoursesPage";
 
 
 
@@ -109,6 +110,10 @@ export const router = createBrowserRouter([
             path: "students/:studentId/assign-course",
             element: <AssignCoursePage />,
           },
+           {
+          path: "my-courses",
+          element: <MyCoursesPage />,
+        },
         ],
       },
     ],

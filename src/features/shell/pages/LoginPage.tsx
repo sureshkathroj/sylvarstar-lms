@@ -1,7 +1,7 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { authService } from "@/features/auth/services/auth.service";
+import { useAuth } from "@/features/auth/hooks/useAuth";
 
 import {
   Card,
@@ -18,36 +18,58 @@ import { Label } from "@/components/ui/label";
 export default function LoginPage() {
   const navigate = useNavigate();
 
+  const {
+    firebaseUser,
+    appUser,
+    loading,
+    login,
+  } = useAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    e: FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
-    setLoading(true);
+    setIsSubmitting(true);
     setError("");
 
     try {
-      await authService.login(email, password);
+      await login(email, password);
 
-      navigate("/app/dashboard");
+      // Navigation is handled by useEffect
+      // after AuthProvider finishes loading.
     } catch (err: any) {
       setError(err.message);
     } finally {
-      setLoading(false);
+      setIsSubmitting(false);
     }
   };
 
+  useEffect(() => {
+    if (loading) return;
+
+    if (firebaseUser && appUser) {
+      navigate("/app/dashboard", {
+        replace: true,
+      });
+    }
+  }, [
+    firebaseUser,
+    appUser,
+    loading,
+    navigate,
+  ]);
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-100 p-6">
-
       <Card className="w-full max-w-md">
-
         <CardHeader>
-
           <CardTitle className="text-2xl">
             Login
           </CardTitle>
@@ -55,18 +77,14 @@ export default function LoginPage() {
           <CardDescription>
             Welcome back to SylvarStar LMS
           </CardDescription>
-
         </CardHeader>
 
         <CardContent>
-
           <form
             onSubmit={handleSubmit}
             className="space-y-6"
           >
-
             <div className="space-y-2">
-
               <Label htmlFor="email">
                 Email
               </Label>
@@ -77,13 +95,13 @@ export default function LoginPage() {
                 placeholder="Enter your email"
                 autoComplete="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) =>
+                  setEmail(e.target.value)
+                }
               />
-
             </div>
 
             <div className="space-y-2">
-
               <Label htmlFor="password">
                 Password
               </Label>
@@ -94,9 +112,10 @@ export default function LoginPage() {
                 placeholder="Enter your password"
                 autoComplete="current-password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) =>
+                  setPassword(e.target.value)
+                }
               />
-
             </div>
 
             {error && (
@@ -108,17 +127,15 @@ export default function LoginPage() {
             <Button
               type="submit"
               className="w-full"
-              disabled={loading}
+              disabled={isSubmitting}
             >
-              {loading ? "Signing In..." : "Login"}
+              {isSubmitting
+                ? "Signing In..."
+                : "Login"}
             </Button>
-
           </form>
-
         </CardContent>
-
       </Card>
-
     </div>
   );
 }

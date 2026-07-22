@@ -34,4 +34,6 @@ export interface Student {
   createdAt: Date;
 
   updatedAt: Date;
+  firebaseUid?: string;
+loginEnabledAt?: Date | null;
 }

@@ -8,13 +8,15 @@ interface StudentTableProps {
   onEdit: (student: Student) => void;
   onToggleStatus: (student: Student) => void;
   onAssignCourse: (student: Student) => void;
+  onEnableLogin: (student: Student) => void;
 }
 
 export default function StudentTable({
   students,
   onEdit,
   onToggleStatus,
-  onAssignCourse
+  onAssignCourse,
+  onEnableLogin,
 }: StudentTableProps) {
   return (
     <div className="overflow-hidden rounded-lg border bg-white">
@@ -25,6 +27,7 @@ export default function StudentTable({
             <th className="p-4 text-left">Course</th>
             <th className="p-4 text-left">Phone</th>
             <th className="p-4 text-left">Status</th>
+            <th className="p-4 text-left">Login</th>
             <th className="p-4 text-left">Actions</th>
           </tr>
         </thead>
@@ -40,6 +43,21 @@ export default function StudentTable({
                 <StudentStatusBadge
                   status={student.status}
                 />
+              </td> 
+              <td className="p-4">
+               {student.firebaseUid ? (
+  <span className="text-sm font-medium text-green-600">
+    Ready
+  </span>
+) : (
+  <Button
+    size="sm"
+    variant="outline"
+    onClick={() => onEnableLogin(student)}
+  >
+    Enable Login
+  </Button>
+)}
               </td>
 
               <td className="p-4">

@@ -83,6 +83,11 @@ const studentNavigation = [
         to: "/app/dashboard",
         icon: LayoutDashboard,
       },
+      {
+        label: "My Courses",
+        to: "/app/my-courses",
+        icon: LayoutDashboard,
+      },
     ],
   },
 ];

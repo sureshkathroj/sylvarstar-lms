@@ -47,22 +47,24 @@ export function AuthProvider({
     const profile = await userService.getUser(user.uid);
 
     if (!profile) {
-      setFirebaseUser(null);
-      setAppUser(null);
-      setLoading(false);
+  console.warn("User profile not found.");
 
-      await authService.logout();
-      return;
-    }
+  setFirebaseUser(user);
+  setAppUser(null);
+  setLoading(false);
+
+  return;
+}
 
     if (profile.status !== "active") {
-      setFirebaseUser(null);
-      setAppUser(null);
-      setLoading(false);
+  console.warn("User is inactive.");
 
-      await authService.logout();
-      return;
-    }
+  setFirebaseUser(user);
+  setAppUser(null);
+  setLoading(false);
+
+  return;
+}
 
     setFirebaseUser(user);
     setAppUser(profile);
