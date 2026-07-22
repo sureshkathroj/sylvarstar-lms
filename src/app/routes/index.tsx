@@ -13,7 +13,7 @@ import CourseDetailsPage from "@/features/marketing/pages/courses/CourseDetailsP
 import AuthTestPage from "@/features/auth/pages/AuthTestPage";
 import LoginPage from "@/features/shell/pages/LoginPage";
 import ProtectedRoute from "@/features/auth/guards/ProtectedRoute";
-import AppLayout from "@/features/shell/layouts/AdminLayout";
+import AppLayout from "@/features/shell/layouts/AppLayout";
 import DashboardPage from "@/features/shell/pages/DashboardPage";
 import EnquiriesPage from "@/features/enquiries/pages/EnquiriesPage";
 import StudentsPage from "@/features/students/pages/StudentsPage";
