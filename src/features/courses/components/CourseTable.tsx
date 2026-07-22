@@ -4,9 +4,11 @@ import CourseStatusBadge from "./CourseStatusBadge";
 import type { Course } from "../types/course.types";
 
 interface CourseTableProps {
-  courses: Course[]
+  courses: Course[];
 
   onEdit: (course: Course) => void;
+
+  onManagePlaylists: (course: Course) => void;
 
   onToggleStatus: (course: Course) => void;
 }
@@ -14,6 +16,7 @@ interface CourseTableProps {
 export default function CourseTable({
   courses,
   onEdit,
+  onManagePlaylists,
   onToggleStatus,
 }: CourseTableProps) {
   return (
@@ -34,19 +37,33 @@ export default function CourseTable({
           {courses.map((course) => (
             <tr key={course.id} className="border-t">
               <td className="p-4">{course.name}</td>
+
               <td className="p-4">{course.category}</td>
+
               <td className="p-4">{course.duration}</td>
 
               <td className="p-4">{course.fee}</td>
 
               <td className="p-4">
-                <div className="flex gap-2">
+                <CourseStatusBadge status={course.status} />
+              </td>
+
+              <td className="p-4">
+                <div className="flex flex-wrap gap-2">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => onEdit(course)}
                   >
                     Edit
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => onManagePlaylists(course)}
+                  >
+                    Playlists
                   </Button>
 
                   <Button

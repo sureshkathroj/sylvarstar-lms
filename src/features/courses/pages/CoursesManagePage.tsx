@@ -42,6 +42,14 @@ export default function CoursesManagePage() {
     setOpen(true);
   };
 
+  const handleManagePlaylists = (course: Course) => {
+    console.log("Manage Playlists:", course);
+
+    toast.info(
+      `Playlist management for "${course.name}" will be implemented next.`
+    );
+  };
+
   const handleToggleStatus = async (course: Course) => {
     try {
       await courseService.updateCourseStatus(
@@ -106,6 +114,7 @@ export default function CoursesManagePage() {
         <CourseTable
           courses={filteredCourses}
           onEdit={handleEdit}
+          onManagePlaylists={handleManagePlaylists}
           onToggleStatus={handleToggleStatus}
         />
       )}
