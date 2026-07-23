@@ -12,12 +12,13 @@ import CourseTable from "../components/CourseTable";
 import { useCourses } from "../hooks/useCourses";
 import { courseService } from "../services/course.service";
 import type { Course } from "../types/course.types";
+import { useNavigate } from "react-router-dom";
 
 export default function CoursesManagePage() {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [selectedCourse, setSelectedCourse] = useState<Course>();
-
+  const navigate = useNavigate();
   const { courses, loading, refresh } = useCourses();
 
   const filteredCourses = useMemo(() => {
@@ -43,12 +44,10 @@ export default function CoursesManagePage() {
   };
 
   const handleManagePlaylists = (course: Course) => {
-    console.log("Manage Playlists:", course);
-
-    toast.info(
-      `Playlist management for "${course.name}" will be implemented next.`
-    );
-  };
+  navigate(
+    `/app/courses/${course.id}/playlists`
+  );
+};
 
   const handleToggleStatus = async (course: Course) => {
     try {

@@ -20,6 +20,7 @@ import StudentsPage from "@/features/students/pages/StudentsPage";
 import CoursesManagePage from "@/features/courses/pages/CoursesManagePage";
 import AssignCoursePage from "@/features/student-courses/pages/AssignCoursePage";
 import MyCoursesPage from "@/features/student/pages/MyCoursesPage";
+import CoursePlaylistsPage from "@/features/course-playlists/pages/CoursePlaylistsPage";
 
 
 
@@ -114,6 +115,10 @@ export const router = createBrowserRouter([
           path: "my-courses",
           element: <MyCoursesPage />,
         },
+        {
+  path: "courses/:courseId/playlists",
+  element: <CoursePlaylistsPage />,
+},
         ],
       },
     ],
